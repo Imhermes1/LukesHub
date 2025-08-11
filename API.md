@@ -225,10 +225,59 @@ curl -X POST http://localhost:3000/api/contact \
 - **Timeout Handling**: External API calls have built-in timeout handling
 - **Memory Usage**: Minimal memory footprint with streaming responses
 
+### Development & Testing
+
+#### Local Development Setup
+
+1. **Environment Variables**
+   ```bash
+   # Copy example environment file
+   cp .env.example .env.local
+   
+   # Add your API keys
+   NOTION_TOKEN=your_notion_integration_token
+   NOTION_DATABASE_ID=your_notion_database_id
+   RESEND_API_KEY=your_resend_api_key
+   ```
+
+2. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+3. **Test API Endpoint**
+   ```bash
+   curl -X POST http://localhost:3000/api/contact \
+     -H "Content-Type: application/json" \
+     -d @test-payload.json
+   ```
+
+#### Integration Status Monitoring
+
+The API provides detailed logging for monitoring integration health:
+
+```typescript
+// Example log output
+{
+  "timestamp": "2024-11-08T10:30:00.000Z",
+  "level": "info",
+  "message": "Contact form submission processed",
+  "data": {
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "notionSuccess": true,
+    "emailSuccess": true,
+    "processingTime": "1.2s"
+  }
+}
+```
+
 ### Future Enhancements
 
-1. **Rate Limiting**: Implement per-IP rate limiting
+1. **Rate Limiting**: Implement per-IP rate limiting with Redis
 2. **Spam Protection**: Add CAPTCHA or honeypot fields
-3. **Analytics**: Track form submission metrics
-4. **Webhooks**: Add webhook support for third-party integrations
+3. **Analytics**: Track form submission metrics and conversion rates
+4. **Webhooks**: Add webhook support for third-party CRM integrations
 5. **File Uploads**: Support for property photos or documents
+6. **A/B Testing**: Form variant testing for optimization
+7. **Lead Scoring**: Automatic lead qualification based on form data

@@ -905,10 +905,10 @@ a:focus-visible {
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   overflow: hidden;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: none !important;
   cursor: pointer;
   position: relative;
-  transform: translateY(0);
+  transform: none !important;
 }
 
 .property-card:hover {
@@ -918,7 +918,7 @@ a:focus-visible {
     0 0 0 2px var(--color-accent-blue), 
     0 12px 40px rgba(59, 130, 246, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transform: translateY(-4px);
+  /* transform: translateY(-4px); */
 }
 
 .property-image-wrapper {
@@ -1005,13 +1005,13 @@ a:focus-visible {
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: none !important;
   position: relative;
-  transform: translateY(0) scale(1);
+  transform: none !important;
 }
 
 .service-card:hover {
-  transform: translateY(-4px) scale(1.02);
+  /* transform: translateY(-4px) scale(1.02); */
   background: var(--glass-bg-purple);
   box-shadow: 
     0 12px 40px rgba(139, 92, 246, 0.15),
@@ -1168,13 +1168,13 @@ a:focus-visible {
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   padding: var(--space-24);
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: none !important;
   position: relative;
-  transform: translateY(0);
+  transform: none !important;
 }
 
 .testimonial:hover {
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
   background: var(--glass-bg-blue);
   box-shadow: 
     0 12px 40px rgba(59, 130, 246, 0.15),
