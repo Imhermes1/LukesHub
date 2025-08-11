@@ -3298,91 +3298,25 @@ a:focus-visible {
   width: 112px;
   height: 112px;
   border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-  display: block;
-  transition: box-shadow 0.2s, transform 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.instagram-grid-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
-.insta-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-}
-.instagram-gradient-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
-  opacity: 0;
-  transition: opacity 0.2s;
-  pointer-events: none;
-  z-index: 2;
-}
-.instagram-grid-item:hover .instagram-gradient-overlay,
-.instagram-grid-item:focus .instagram-gradient-overlay {
-  opacity: 0.7;
-}
-.instagram-follow-button {
-  display: inline-block;
-  margin: 0 auto;
-  padding: 8px 28px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f9ce34 0%, #ee2a7b 50%, #6228d7 100%);
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  cursor: pointer;
-}
-.instagram-follow-button:hover,
-.instagram-follow-button:focus {
-  background: linear-gradient(135deg, #ee2a7b 0%, #f9ce34 100%);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(238,42,123,0.18);
-}
-.instagram-cta {
-  text-align: center;
-  margin-top: 0.5rem;
-}
-/
-* Responsive Design Improvements */
 
-/* Mobile optimizations for glass morphism */
+/* Responsive Design Improvements */
 @media (max-width: 768px) {
-  /* Reduce blur intensity on mobile for better performance */
   .sticky-header,
   .nav-dropdown-menu,
   .property-card,
   .service-card,
-  .testimonial,
-  .brand-showcase,
-  .guide-card,
-  .social-link-button {
+  .testimonial {
     backdrop-filter: blur(10px) saturate(150%);
     -webkit-backdrop-filter: blur(10px) saturate(150%);
   }
 
-  /* Ensure text readability on glass surfaces */
   .property-card,
   .service-card,
   .testimonial {
     background: var(--glass-bg-medium);
   }
 
-  /* Improve touch targets */
   .nav-toggle {
     width: 48px;
     height: 48px;
@@ -3393,7 +3327,6 @@ a:focus-visible {
     font-size: 1.2rem;
   }
 
-  /* Optimize hero section for mobile */
   .hero-title {
     font-size: 36px;
   }
@@ -3407,7 +3340,6 @@ a:focus-visible {
     font-size: var(--font-size-base);
   }
 
-  /* Responsive grid adjustments */
   .testimonials-grid {
     grid-template-columns: 1fr;
     gap: var(--space-16);
@@ -3424,7 +3356,6 @@ a:focus-visible {
   }
 }
 
-/* Tablet optimizations */
 @media (min-width: 769px) and (max-width: 1024px) {
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -3435,79 +3366,7 @@ a:focus-visible {
   }
 }
 
-/* High-resolution display optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  /* Enhance glass effects on high-DPI displays */
-  .sticky-header,
-  .property-card,
-  .service-card,
-  .testimonial {
-    backdrop-filter: blur(25px) saturate(200%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%);
-  }
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .property-card,
-  .service-card,
-  .testimonial,
-  .brand-showcase,
-  .guide-card,
-  .nav-dropdown-menu {
-    transition: none;
-  }
-
-  .property-card:hover,
-  .service-card:hover,
-  .testimonial:hover {
-    transform: none;
-  }
-
-  @keyframes fadeInDown {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-}
-
-/* Dark mode responsive adjustments */
-@media (prefers-color-scheme: dark) {
-  /* Ensure glass effects work well in dark mode */
-  .property-card,
-  .service-card,
-  .testimonial,
-  .brand-showcase {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .property-card:hover,
-  .service-card:hover,
-  .testimonial:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-/* Print styles */
-@media print {
-  .sticky-header,
-  .nav-dropdown-menu,
-  .hero-glassmorphism,
-  .hero-overlay {
-    display: none;
-  }
-
-  .property-card,
-  .service-card,
-  .testimonial {
-    background: white;
-    border: 1px solid #ccc;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}/* Mic
-ro-interactions and Animations */
-
-/* Subtle pulse animation for CTA buttons */
+/* Micro-interactions */
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
   70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
@@ -3522,25 +3381,6 @@ ro-interactions and Animations */
   animation: none;
 }
 
-/* Gradient animation for buttons */
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.btn-primary,
-.btn-hero-large {
-  background-size: 200% 200%;
-  animation: gradientShift 3s ease infinite;
-}
-
-.btn-primary:hover,
-.btn-hero-large:hover {
-  animation: gradientShift 1s ease infinite;
-}
-
-/* Floating animation for cards */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-5px); }
@@ -3560,199 +3400,16 @@ ro-interactions and Animations */
   animation-delay: -4s;
 }
 
-/* Shimmer effect for glass elements */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.property-card::before,
-.service-card::before,
-.testimonial::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.property-card:hover::before,
-.service-card:hover::before,
-.testimonial:hover::before {
-  opacity: 1;
-}
-
-/* Glow effect for interactive elements */
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.6); }
-}
-
-.nav-toggle span {
-  animation: glow 2s ease-in-out infinite;
-}
-
-/* Smooth reveal animation for sections */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section {
-  animation: slideInUp 0.6s ease-out;
-}
-
-/* Staggered animation for grid items */
-.services-grid .service-card {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.services-grid .service-card:nth-child(1) { animation-delay: 0.1s; }
-.services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
-.services-grid .service-card:nth-child(3) { animation-delay: 0.3s; }
-.services-grid .service-card:nth-child(4) { animation-delay: 0.4s; }
-
-.testimonials-grid .testimonial:nth-child(1) { animation-delay: 0.1s; }
-.testimonials-grid .testimonial:nth-child(2) { animation-delay: 0.2s; }
-.testimonials-grid .testimonial:nth-child(3) { animation-delay: 0.3s; }
-
-/* Hover ripple effect */
-@keyframes ripple {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-.btn-primary::after,
-.btn-hero-large::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
-
-.btn-primary:focus:not(:active)::after,
-.btn-hero-large:focus:not(:active)::after {
-  animation: ripple 1s ease-out;
-}
-
-/* Typewriter effect for hero title (optional) */
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blinkCursor {
-  from, to { border-color: transparent; }
-  50% { border-color: var(--color-accent-blue); }
-}
-
-/* Smooth color transitions */
-* {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Enhanced focus states */
-.btn-primary:focus-visible,
-.btn-hero-large:focus-visible {
-  outline: 2px solid var(--color-accent-blue);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
-}
-
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Loading state animations */
-@keyframes skeleton {
-  0% { background-position: -200px 0; }
-  100% { background-position: calc(200px + 100%) 0; }
-}
-
-.loading-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200px 100%;
-  animation: skeleton 1.5s infinite linear;
-}/* Perf
-ormance Optimizations and Cross-Browser Compatibility */
-
-/* GPU acceleration for smooth animations */
+/* Performance optimizations */
 .property-card,
 .service-card,
 .testimonial,
 .btn-primary,
-.btn-hero-large,
-.nav-dropdown-menu {
+.btn-hero-large {
   will-change: transform;
   transform: translateZ(0);
 }
 
-/* Optimize backdrop-filter for better performance */
-@supports (backdrop-filter: blur(20px)) {
-  .sticky-header,
-  .nav-dropdown-menu,
-  .property-card,
-  .service-card,
-  .testimonial,
-  .brand-showcase {
-    backdrop-filter: blur(20px) saturate(180%);
-  }
-}
-
-/* Fallback for browsers that don't support backdrop-filter */
-@supports not (backdrop-filter: blur(20px)) {
-  .sticky-header {
-    background: rgba(255, 255, 255, 0.95);
-  }
-  
-  .nav-dropdown-menu {
-    background: rgba(255, 255, 255, 0.98);
-  }
-  
-  .property-card,
-  .service-card,
-  .testimonial,
-  .brand-showcase {
-    background: rgba(255, 255, 255, 0.9);
-  }
-}
-
-/* Optimize font loading */
-@font-display: swap;
-
-/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -3760,7 +3417,6 @@ ormance Optimizations and Cross-Browser Compatibility */
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
   
   .btn-hero-large {
@@ -3772,158 +3428,4 @@ ormance Optimizations and Cross-Browser Compatibility */
   .testimonial {
     animation: none;
   }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .property-card,
-  .service-card,
-  .testimonial {
-    border: 2px solid var(--color-text);
-    background: var(--color-background);
-  }
-  
-  .btn-primary,
-  .btn-hero-large {
-    border: 2px solid var(--color-text);
-  }
-}
-
-/* Print optimizations */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  
-  .property-card,
-  .service-card,
-  .testimonial {
-    border: 1px solid #000;
-    page-break-inside: avoid;
-  }
-  
-  .btn-primary,
-  .btn-hero-large {
-    border: 1px solid #000;
-    background: transparent !important;
-    color: #000 !important;
-  }
-}
-
-/* Accessibility improvements */
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-/* Focus management */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--color-primary);
-  color: var(--color-background);
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 4px;
-  z-index: 10000;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
-/* Ensure sufficient color contrast */
-.property-card,
-.service-card,
-.testimonial {
-  color: var(--color-text);
-  background: var(--glass-bg-medium);
-}
-
-/* Optimize for touch devices */
-@media (hover: none) and (pointer: coarse) {
-  .property-card:hover,
-  .service-card:hover,
-  .testimonial:hover {
-    transform: none;
-  }
-  
-  .btn-primary:hover,
-  .btn-hero-large:hover {
-    transform: none;
-  }
-}
-
-/* Container queries for modern browsers */
-@supports (container-type: inline-size) {
-  .services-grid {
-    container-type: inline-size;
-  }
-  
-  @container (max-width: 600px) {
-    .service-card {
-      padding: var(--space-16);
-    }
-  }
-}
-
-/* Modern CSS features with fallbacks */
-.property-card,
-.service-card,
-.testimonial {
-  /* Modern approach */
-  background: var(--glass-bg-light);
-  
-  /* Fallback for older browsers */
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Optimize animations for 60fps */
-@keyframes optimizedFloat {
-  0%, 100% { 
-    transform: translate3d(0, 0, 0); 
-  }
-  50% { 
-    transform: translate3d(0, -5px, 0); 
-  }
-}
-
-.property-card,
-.service-card,
-.testimonial {
-  animation: optimizedFloat 6s ease-in-out infinite;
-}
-
-/* Final performance tweaks */
-* {
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Ensure proper stacking context */
-.sticky-header {
-  z-index: 1000;
-}
-
-.nav-dropdown-menu {
-  z-index: 1200;
-}
-
-.hero-content {
-  z-index: 5;
 }
