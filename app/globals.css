@@ -415,16 +415,35 @@ a:focus-visible {
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
+}
+
+/* Apply gradient text to all buttons */
+.btn {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .btn::before {
@@ -461,38 +480,56 @@ a:focus-visible {
 }
 
 .btn-primary {
-  background: rgba(255, 255, 255, 0.9);
-  color: #000000;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 1);
-  color: #000000;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary {
-  background: var(--glass-bg-blue);
-  color: var(--color-accent-blue);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border: 1px solid var(--glass-border-blue);
 }
 
 .btn-secondary:hover {
-  background: var(--glass-bg-medium);
-  color: var(--color-accent-blue-hover);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border: 1px solid var(--color-accent-blue);
 }
 
 .btn-secondary-invert {
-  background: var(--glass-bg-purple);
-  color: var(--color-accent-purple);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border: 1px solid var(--glass-border-purple);
 }
 
 .btn-secondary-invert:hover {
-  background: var(--glass-bg-medium);
-  color: var(--color-accent-purple-hover);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   border: 1px solid var(--color-accent-purple);
 }
 
@@ -505,32 +542,44 @@ a:focus-visible {
   font-weight: var(--font-weight-semibold);
   padding: var(--space-10) var(--space-20);
   border-radius: 20px;
-  background: var(--gradient-blue-purple);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 
-    0 8px 24px rgba(59, 130, 246, 0.3),
-    0 4px 12px rgba(139, 92, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--duration-normal) var(--ease-standard);
-  color: #ffffff;
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .btn-hero-large:hover {
   transform: translateY(-3px);
-  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   box-shadow: 
-    0 12px 32px rgba(59, 130, 246, 0.4),
-    0 6px 16px rgba(139, 92, 246, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 12px 32px rgba(0, 0, 0, 0.4),
+    0 6px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-hero-large:active {
   transform: translateY(-1px);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  color: transparent;
+  background-image: var(--gradient-blue-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
   box-shadow: 
-    0 4px 12px rgba(59, 130, 246, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -2267,9 +2316,16 @@ a:focus-visible {
 }
 
 .footer {
-  background-color: var(--color-accent-navy);
-  color: var(--color-accent-gold);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--glass-border);
+  color: var(--color-text);
   padding: var(--space-32) 0 var(--space-16);
+  box-shadow: 
+    0 -8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
 .footer-content {
