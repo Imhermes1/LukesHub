@@ -908,6 +908,7 @@ a:focus-visible {
   transition: all var(--duration-normal) var(--ease-standard);
   cursor: pointer;
   position: relative;
+  transform: translateY(0);
 }
 
 .property-card:hover {
@@ -1006,6 +1007,7 @@ a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all var(--duration-normal) var(--ease-standard);
   position: relative;
+  transform: translateY(0) scale(1);
 }
 
 .service-card:hover {
@@ -1168,6 +1170,7 @@ a:focus-visible {
   padding: var(--space-24);
   transition: all var(--duration-normal) var(--ease-standard);
   position: relative;
+  transform: translateY(0);
 }
 
 .testimonial:hover {
@@ -1443,6 +1446,7 @@ a:focus-visible {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100px;
+  transform: translateY(0);
 }
 
 .guide-card:hover {
@@ -1515,6 +1519,7 @@ a:focus-visible {
   border-radius: 12px;
   transition: all var(--duration-normal) var(--ease-standard);
   min-height: 60px;
+  transform: translateY(0);
 }
 
 .article-card:hover {
@@ -2351,12 +2356,12 @@ a:focus-visible {
   margin: 0 0 var(--space-8) 0;
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
-  color: #3B82F6;
+  color: white;
 }
 
 .footer-brand-text p {
   margin: 0;
-  color: #3B82F6;
+  color: white;
   line-height: var(--line-height-normal);
 }
 
@@ -2366,7 +2371,7 @@ a:focus-visible {
 }
 
 .footer-brand p {
-  color: #3B82F6;
+  color: white;
   margin: 0;
 }
 
@@ -2377,7 +2382,7 @@ a:focus-visible {
 }
 
 .footer-links h4 {
-  color: #3B82F6;
+  color: white;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin: 0 0 var(--space-12) 0;
@@ -2391,17 +2396,17 @@ a:focus-visible {
 
 .footer-links li {
   margin-bottom: var(--space-6);
-  color: #3B82F6;
+  color: white;
 }
 
 .footer-links a {
-  color: #3B82F6;
+  color: white;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .footer-links a:hover {
-  color: white;
+  color: var(--color-accent-blue);
 }
 
 .footer-social {
@@ -2411,7 +2416,7 @@ a:focus-visible {
 }
 
 .footer-social h4 {
-  color: #3B82F6;
+  color: white;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin: 0 0 var(--space-12) 0;
@@ -2423,13 +2428,13 @@ a:focus-visible {
 }
 
 .footer-social a {
-  color: #3B82F6;
+  color: white;
   font-size: var(--font-size-xl);
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .footer-social a:hover {
-  color: white;
+  color: var(--color-accent-blue);
 }
 
 .footer-bottom {
@@ -2437,8 +2442,8 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   padding-top: var(--space-16);
-  border-top: 1px solid rgba(59, 130, 246, 0.3);
-  color: #3B82F6;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
   font-size: var(--font-size-sm);
 }
 
@@ -2448,13 +2453,13 @@ a:focus-visible {
 }
 
 .footer-legal a {
-  color: #3B82F6;
+  color: white;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .footer-legal a:hover {
-  color: white;
+  color: var(--color-accent-blue);
 }
 
 /* Mobile responsive styles */
