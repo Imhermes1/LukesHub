@@ -50,11 +50,6 @@ export default function Header() {
     <header className="sticky-header" role="banner">
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
-          <img
-            src="/images/logo.svg"
-            alt="MAK REALTY Logo"
-            className="brand-logo"
-          />
           <div className="brand-text">
             <h1 className="brand-title">Luke Fornieri</h1>
           </div>

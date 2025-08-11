@@ -1,12 +1,13 @@
 :root {
-  /* Modern Black & Off-White Base */
-  --color-background: #fafafa;
-  --color-surface: #f5f5f5;
-  --color-text: #000000;
-  --color-text-secondary: #333333;
-  --color-primary: #000000; /* Pure Black */
-  --color-primary-hover: #111111;
-  --color-primary-active: #000000;
+  /* Modern Black to Light Grey Gradient Base */
+  --color-background: linear-gradient(135deg, #000000 0%, #2a2a2a 50%, #4a4a4a 100%);
+  --color-background-solid: #1a1a1a; /* Fallback solid color */
+  --color-surface: #2a2a2a;
+  --color-text: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-primary: #ffffff; /* White primary */
+  --color-primary-hover: #f0f0f0;
+  --color-primary-active: #ffffff;
   
   /* Modern Blue & Purple Accents */
   --color-accent-blue: #3B82F6;
@@ -15,6 +16,10 @@
   --color-accent-purple: #8B5CF6;
   --color-accent-purple-hover: #7C3AED;
   --color-accent-purple-light: #A78BFA;
+  
+  /* Legacy color mappings for backward compatibility */
+  --color-accent-navy: #3B82F6; /* Map to blue */
+  --color-accent-gold: #8B5CF6; /* Map to purple */
   
   /* Gray Scale */
   --color-gray-50: #F9FAFB;
@@ -26,10 +31,10 @@
   --color-gray-900: #111827;
   
   /* System Colors */
-  --color-border: #E5E7EB;
-  --color-btn-primary-text: #ffffff;
-  --color-card-border: #E5E7EB;
-  --color-card-border-inner: #F3F4F6;
+  --color-border: #404040;
+  --color-btn-primary-text: #000000;
+  --color-card-border: #404040;
+  --color-card-border-inner: #505050;
   --color-error: #EF4444;
   --color-success: #10B981;
   --color-warning: #F59E0B;
@@ -132,26 +137,31 @@
 /* Dark mode colors - Updated with modern palette */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #111827;
-    --color-surface: #111111;
-    --color-text: #FFFFFF;
-    --color-text-secondary: #D1D5DB;
-    --color-primary: #3B82F6;
-    --color-primary-hover: #2563EB;
-    --color-primary-active: #1D4ED8;
+    --color-background: linear-gradient(135deg, #000000 0%, #2a2a2a 50%, #4a4a4a 100%);
+    --color-background-solid: #1a1a1a;
+    --color-surface: #2a2a2a;
+    --color-text: #ffffff;
+    --color-text-secondary: #e0e0e0;
+    --color-primary: #ffffff;
+    --color-primary-hover: #f0f0f0;
+    --color-primary-active: #ffffff;
     --color-accent-blue: #60A5FA;
     --color-accent-blue-hover: #3B82F6;
     --color-accent-purple: #A78BFA;
     --color-accent-purple-hover: #8B5CF6;
-    --color-border: #374151;
+    
+    /* Legacy color mappings for backward compatibility */
+    --color-accent-navy: #60A5FA; /* Map to blue */
+    --color-accent-gold: #A78BFA; /* Map to purple */
+    --color-border: #404040;
     --color-error: #F87171;
     --color-success: #34D399;
     --color-warning: #FBBF24;
     --color-info: #60A5FA;
     --color-focus-ring: rgba(59, 130, 246, 0.4);
-    --color-btn-primary-text: #FFFFFF;
-    --color-card-border: #374151;
-    --color-card-border-inner: #4B5563;
+    --color-btn-primary-text: #000000;
+    --color-card-border: #404040;
+    --color-card-border-inner: #505050;
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
       inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     --color-border-secondary: #4B5563;
@@ -175,26 +185,31 @@
 
 /* Data attribute for manual theme switching */
 [data-color-scheme="dark"] {
-  --color-background: #111827;
-  --color-surface: #111111;
-  --color-text: #FFFFFF;
-  --color-text-secondary: #D1D5DB;
-  --color-primary: #3B82F6;
-  --color-primary-hover: #2563EB;
-  --color-primary-active: #1D4ED8;
+  --color-background: linear-gradient(135deg, #000000 0%, #2a2a2a 50%, #4a4a4a 100%);
+  --color-background-solid: #1a1a1a;
+  --color-surface: #2a2a2a;
+  --color-text: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-primary: #ffffff;
+  --color-primary-hover: #f0f0f0;
+  --color-primary-active: #ffffff;
   --color-accent-blue: #60A5FA;
   --color-accent-blue-hover: #3B82F6;
   --color-accent-purple: #A78BFA;
   --color-accent-purple-hover: #8B5CF6;
-  --color-border: #374151;
+  
+  /* Legacy color mappings for backward compatibility */
+  --color-accent-navy: #60A5FA; /* Map to blue */
+  --color-accent-gold: #A78BFA; /* Map to purple */
+  --color-border: #404040;
   --color-error: #F87171;
   --color-success: #34D399;
   --color-warning: #FBBF24;
   --color-info: #60A5FA;
   --color-focus-ring: rgba(59, 130, 246, 0.4);
-  --color-btn-primary-text: #FFFFFF;
-  --color-card-border: #374151;
-  --color-card-border-inner: #4B5563;
+  --color-btn-primary-text: #000000;
+  --color-card-border: #404040;
+  --color-card-border-inner: #505050;
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   --color-border-secondary: #4B5563;
@@ -216,21 +231,26 @@
 }
 
 [data-color-scheme="light"] {
-  --color-background: #fafafa;
-  --color-surface: #f5f5f5;
-  --color-text: #000000;
-  --color-text-secondary: #333333;
-  --color-primary: #000000;
-  --color-primary-hover: #111111;
-  --color-primary-active: #000000;
+  --color-background: linear-gradient(135deg, #000000 0%, #2a2a2a 50%, #4a4a4a 100%);
+  --color-background-solid: #1a1a1a;
+  --color-surface: #2a2a2a;
+  --color-text: #ffffff;
+  --color-text-secondary: #e0e0e0;
+  --color-primary: #ffffff;
+  --color-primary-hover: #f0f0f0;
+  --color-primary-active: #ffffff;
   --color-accent-blue: #3B82F6;
   --color-accent-blue-hover: #2563EB;
   --color-accent-purple: #8B5CF6;
   --color-accent-purple-hover: #7C3AED;
-  --color-border: #E5E7EB;
-  --color-btn-primary-text: #FFFFFF;
-  --color-card-border: #F3F4F6;
-  --color-card-border-inner: #F9FAFB;
+  
+  /* Legacy color mappings for backward compatibility */
+  --color-accent-navy: #3B82F6; /* Map to blue */
+  --color-accent-gold: #8B5CF6; /* Map to purple */
+  --color-border: #404040;
+  --color-btn-primary-text: #000000;
+  --color-card-border: #404040;
+  --color-card-border-inner: #505050;
   --color-error: #EF4444;
   --color-success: #10B981;
   --color-warning: #F59E0B;
@@ -262,7 +282,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-background);
+  background: var(--color-background);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -282,7 +302,8 @@ body {
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background: var(--color-background);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
@@ -331,7 +352,7 @@ a:focus-visible {
 
 .section {
   padding: var(--space-32) 0;
-  background-color: var(--color-background);
+  background: transparent;
   position: relative;
 }
 
@@ -440,15 +461,15 @@ a:focus-visible {
 }
 
 .btn-primary {
-  background: rgba(0, 0, 0, 0.8);
-  color: var(--color-btn-primary-text);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
-  background: rgba(0, 0, 0, 0.9);
-  color: var(--color-btn-primary-text);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 1);
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary {
@@ -685,7 +706,7 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--color-background);
+  background: var(--color-background);
 }
 
 .hero-background {
@@ -695,7 +716,7 @@ a:focus-visible {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: var(--color-background);
+  background: var(--color-background);
 }
 
 /* MAK Logo Background */
@@ -708,7 +729,7 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-background);
+  background: var(--color-background);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -1564,7 +1585,7 @@ a:focus-visible {
 .brand-title {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent-blue);
+  color: var(--color-text);
   margin-bottom: var(--space-4);
   letter-spacing: -0.02em;
 }
