@@ -235,6 +235,18 @@ Standard glassmorphism card:
   - Auto Rename Tag
   - Prettier - Code formatter
 
+#### VSCode Configuration
+
+The project includes specific VSCode settings in `.vscode/settings.json`:
+
+```json
+{
+    "typescript.autoClosingTags": false
+}
+```
+
+**Purpose**: Disables automatic closing tags for TypeScript files to prevent conflicts with JSX formatting. This improves the development experience when manually structuring React components and prevents unwanted tag completion that can interfere with code organization.
+
 ### Code Quality
 
 #### TypeScript

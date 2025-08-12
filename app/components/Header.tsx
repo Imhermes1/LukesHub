@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
@@ -27,6 +28,25 @@ export default function Header() {
     { id: 'contact', label: 'Contact' }
   ];
 
+  // Handle scroll detection for header transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.scrollY + 80; // Add header height offset
+        setIsScrolled(scrollPosition > heroBottom);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   // Close menu when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -47,7 +67,7 @@ export default function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky-header" role="banner">
+    <header className={`sticky-header${isScrolled ? ' scrolled' : ''}`} role="banner">
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
           <div className="brand-text">
