@@ -17,6 +17,7 @@ This is a premium real estate website for Luke Fornieri at MAK REALTY, showcasin
 - **Performance Optimized**: Vercel Analytics, Speed Insights, and image optimization
 - **SEO & Accessibility Ready**: Structured data, meta tags, and ARIA compliance
 - **Component-Based Architecture**: Modular React components with TypeScript
+- **Content Hub**: Integrated social media links, downloadable property guides, and Medium article feed
 
 ## 🚀 Tech Stack
 
@@ -34,8 +35,10 @@ This is a premium real estate website for Luke Fornieri at MAK REALTY, showcasin
 luke-real-estate-site/
 ├── app/
 │   ├── api/
-│   │   └── contact/
-│   │       └── route.ts          # Contact form API with Notion + Resend integration
+│   │   ├── contact/
+│   │   │   └── route.ts          # Contact form API with Notion + Resend integration
+│   │   └── form-track/
+│   │       └── route.ts          # Form tracking API for analytics and lead management
 │   ├── components/
 │   │   ├── About.tsx             # About section with photo and bio
 │   │   ├── CareerHighlights.tsx  # Property showcase with interactive cards
@@ -46,7 +49,7 @@ luke-real-estate-site/
 │   │   ├── MediaCoverage.tsx     # Media logos and press coverage
 │   │   ├── PropertyModal.tsx     # Property detail modal with image gallery
 │   │   ├── Services.tsx          # Services grid with embedded video
-│   │   ├── Social.tsx            # Social media feed integration
+│   │   ├── Social.tsx            # Content Hub with social media, guides, and articles
 │   │   └── Testimonials.tsx      # Client testimonials carousel
 │   ├── deletion/
 │   │   └── page.tsx              # Data deletion request page
@@ -108,9 +111,12 @@ luke-real-estate-site/
    
    # Email Notifications (Optional - for contact form email alerts)
    RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   
+   # Discord Notifications (Optional - for form tracking alerts)
+   DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN
    ```
    
-   **Note**: The contact form will work without these integrations but will only show success messages without actually storing or sending data.
+   **Note**: The contact form will work without these integrations but will only show success messages without actually storing or sending data. Form tracking will log to console regardless of Discord integration.
 
 4. **Development Server**
    ```bash
@@ -191,6 +197,21 @@ The website uses a sophisticated dark theme with modern blue and purple accents:
 - **Purpose**: Full-screen video background with professional branding
 - **Content**: "Luke Fornieri" main title, "Licensed Estate Agent" subtitle, call-to-action button
 - **Technical**: Autoplay video with grayscale filter, glassmorphism overlay, fade-in animations
+
+**Social Component (Content Hub):**
+- **Purpose**: Centralized content hub featuring social media integration, downloadable resources, and market insights
+- **Features**: Social media links (Instagram, YouTube, Facebook), downloadable PDF property guides, Medium article feed
+- **Structure**: Three-column layout with Luke's photo, social/guide resources, and latest articles
+- **Interactive Elements**: Modal forms for guide downloads with form tracking, external links to social platforms and articles
+- **Content**: Real-time Medium article feed, downloadable buying/selling guides with lead capture forms
+- **Analytics**: Both buyer and seller guide downloads are tracked via `/api/form-track` endpoint for lead analytics
+
+**PropertyModal Component:**
+- **Purpose**: Interactive property detail modal with comprehensive property information and media
+- **Features**: Property image gallery, pricing display, status badges, detailed descriptions
+- **Video Integration**: Embedded YouTube video tours for select properties (currently Templestowe property with video ID: YNqqiuc_lR4)
+- **Accessibility**: Full keyboard navigation, ARIA labels, escape key handling, focus management
+- **Actions**: Direct enquiry button that scrolls to contact form and focuses name input field
 
 #### Glassmorphism System
 ```css
@@ -285,6 +306,95 @@ The contact form features a robust dual-integration system that handles form sub
     "email": true
   }
 }
+```
+
+## 📊 Form Tracking API
+
+The website includes a dedicated form tracking endpoint for analytics and lead management with Discord notification integration.
+
+### Form Tracking Endpoint
+
+**Endpoint**: `POST /api/form-track`
+
+**Purpose**: Tracks form submissions for analytics, lead generation, and user behavior analysis with real-time Discord notifications.
+
+**Request Format**:
+```json
+{
+  "event": "buyer_guide_request" | "seller_guide_request",
+  "firstName": "string",
+  "lastName": "string", 
+  "email": "string",
+  "address": "string (optional, seller forms only)",
+  "guide": "buying-real-estate-guide" | "selling-2025-guide",
+  "path": "string (current page path)"
+}
+```
+
+**Response**: 
+- **Success**: `204 No Content` (tracking logged successfully)
+- **Error**: `500 Internal Server Error` (tracking failed)
+
+**Features**:
+- **Console Logging**: All submissions logged with timestamp for analytics
+- **Discord Notifications**: Real-time lead notifications sent to Discord webhook (optional)
+- **Error Handling**: Graceful failure - form submission continues even if tracking fails
+- **Privacy Focused**: No persistent storage, only console logging for development/monitoring
+- **Async Processing**: Non-blocking tracking that doesn't affect user experience
+
+### Discord Integration
+
+**Setup Requirements**:
+1. Create a Discord server or use an existing one
+2. Create a webhook in your desired channel (Server Settings → Integrations → Webhooks)
+3. Copy the webhook URL
+4. Add `DISCORD_WEBHOOK_URL` to your environment variables
+
+**Environment Variable**:
+```env
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN
+```
+
+**Discord Notification Format**:
+- **Rich Embeds**: Formatted with colors, fields, and timestamps
+- **Lead Information**: Name, email, guide type, and optional property address
+- **Visual Indicators**: Emojis and color coding (green for new leads)
+- **Timestamp**: Automatic timestamp in ISO format
+- **Footer**: "Real Estate Lead" identifier
+
+**Usage Examples**:
+
+*Buyer Guide Request:*
+```javascript
+fetch("/api/form-track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    event: "buyer_guide_request",
+    firstName: "John",
+    lastName: "Smith",
+    email: "john@example.com",
+    guide: "buying-real-estate-guide",
+    path: "/"
+  })
+});
+```
+
+*Seller Guide Request:*
+```javascript
+fetch("/api/form-track", {
+  method: "POST", 
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    event: "seller_guide_request",
+    firstName: "Jane",
+    lastName: "Doe",
+    email: "jane@example.com",
+    address: "123 Main St, Melbourne",
+    guide: "selling-2025-guide",
+    path: "/"
+  })
+});
 ```
 
 ## 🔧 Development Configuration
@@ -383,6 +493,7 @@ The site is optimized for Vercel deployment with automatic CI/CD:
 NOTION_TOKEN=secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 NOTION_DATABASE_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN
 ```
 
 ### Performance Monitoring
@@ -495,6 +606,26 @@ curl -X POST http://localhost:3000/api/contact \
 }
 ```
 
+**Form Tracking Endpoint:**
+```bash
+# Test form tracking locally
+curl -X POST http://localhost:3000/api/form-track \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event": "buyer_guide_request",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "guide": "buying-real-estate-guide",
+    "path": "/"
+  }'
+```
+
+**Expected Response:**
+```
+204 No Content (tracking logged successfully)
+```
+
 ### Browser Compatibility
 
 **Fully Supported:**
@@ -536,8 +667,21 @@ This is a private project. For updates or modifications, please contact the deve
 ## 🔄 Recent Updates
 
 **Latest Changes:**
+- **v1.0.5 (December 8, 2024)**: Enhanced form tracking with Discord integration
+  - Migrated from Slack to Discord webhook notifications for better lead management
+  - Rich embed format with structured fields, colors, and timestamps
+  - Improved notification formatting with emojis and proper text casing
+  - Enhanced error handling for Discord webhook failures
+- **v1.0.4 (December 8, 2024)**: Enhanced Social component form tracking
+  - Updated seller guide form submission to include comprehensive analytics tracking
+  - Both buyer and seller forms now consistently track submissions via `/api/form-track` endpoint
+  - Improved async handling for form submissions with proper error handling
+- **v1.0.3 (December 8, 2024)**: Updated PropertyModal component with new YouTube video integration
+  - Updated Templestowe property video tour with new YouTube video ID (YNqqiuc_lR4)
+  - Enhanced property showcase with embedded video content for better user engagement
 - **v1.0.2 (December 8, 2024)**: Updated Footer component with official licensing credentials (License No: 094444L)
 - Updated hero section with "Luke Fornieri" as main title and "Licensed Estate Agent" as subtitle for enhanced personal branding
+- Renamed Social component from "Real Estate Academy" to "Content Hub" for clearer content organization
 - Enhanced contact form with dual integration system
 - Improved glassmorphism design system
 - Added comprehensive error handling and validation
@@ -552,7 +696,7 @@ This is a private project. For updates or modifications, please contact the deve
 ---
 
 **Last Updated**: December 8, 2024  
-**Version**: 1.0.2  
+**Version**: 1.0.5  
 **Framework**: Next.js 14.2.30  
 **Node.js**: 18.17+ required  
 **Maintainer**: Development Team
@@ -566,3 +710,11 @@ This is a private project. For updates or modifications, please contact the deve
 - Features MAK REALTY branding with Luke Fornieri's professional details and licensing credentials
 - Includes legal links to Privacy Policy and Data Deletion pages
 - Maintains responsive design with glassmorphism styling consistent with the site theme
+
+**Social Component (December 8, 2024):**
+- Renamed from "Real Estate Academy" to "Content Hub" for clearer content organization
+- Removed subtitle "Connect, learn, and stay informed with Melbourne's premium property insights" for simplified presentation
+- Enhanced form tracking: Both buyer and seller guide downloads now include comprehensive analytics tracking
+- Maintains all existing functionality including social media links, downloadable PDF guides, and Medium article integration
+- Preserves three-column layout with Luke's photo, resource sections, and latest market insights
+- Updated seller form submission handler to match buyer form with proper async/await pattern and form tracking

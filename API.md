@@ -272,6 +272,199 @@ The API provides detailed logging for monitoring integration health:
 }
 ```
 
+## Form Tracking API
+
+### Endpoint
+
+`POST /api/form-track`
+
+### Description
+
+Tracks form submissions for analytics and lead management with Discord notification integration. Used primarily for PDF guide downloads and user behavior tracking.
+
+### Request
+
+#### Headers
+```
+Content-Type: application/json
+```
+
+#### Body Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `event` | string | Yes | Event type: `buyer_guide_request` or `seller_guide_request` |
+| `firstName` | string | Yes | Contact's first name |
+| `lastName` | string | Yes | Contact's last name |
+| `email` | string | Yes | Valid email address |
+| `address` | string | No | Property address (seller forms only) |
+| `guide` | string | Yes | Guide type: `buying-real-estate-guide` or `selling-2025-guide` |
+| `path` | string | Yes | Current page path where form was submitted |
+
+#### Example Request
+
+```json
+{
+  "event": "buyer_guide_request",
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "guide": "buying-real-estate-guide",
+  "path": "/"
+}
+```
+
+```json
+{
+  "event": "seller_guide_request",
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "address": "123 Collins Street, Melbourne VIC 3000",
+  "guide": "selling-2025-guide",
+  "path": "/"
+}
+```
+
+### Response
+
+#### Success Response (204)
+
+```
+204 No Content
+```
+
+The endpoint returns no content on success, indicating the tracking was logged successfully.
+
+#### Server Error (500)
+
+```json
+{
+  "error": "Internal server error"
+}
+```
+
+### Discord Integration
+
+#### Environment Variables
+- `DISCORD_WEBHOOK_URL`: Discord webhook URL for notifications
+
+#### Discord Notification Format
+
+The API sends rich embed notifications to Discord with the following structure:
+
+```json
+{
+  "embeds": [
+    {
+      "title": "🏠 New Buyer Guide Request",
+      "color": 65280,
+      "fields": [
+        {
+          "name": "👤 Name",
+          "value": "Jane Smith",
+          "inline": true
+        },
+        {
+          "name": "📧 Email", 
+          "value": "jane.smith@example.com",
+          "inline": true
+        },
+        {
+          "name": "📋 Guide",
+          "value": "Buying Real Estate Guide",
+          "inline": true
+        }
+      ],
+      "timestamp": "2024-12-08T10:30:00.000Z",
+      "footer": {
+        "text": "Real Estate Lead"
+      }
+    }
+  ]
+}
+```
+
+#### Features
+
+- **Rich Embeds**: Formatted notifications with colors and structured fields
+- **Event Formatting**: Automatic text formatting with proper capitalization
+- **Conditional Fields**: Property address field only shown for seller requests
+- **Timestamps**: Automatic ISO timestamp for tracking
+- **Error Handling**: Graceful failure if Discord webhook is unavailable
+
+### Implementation Details
+
+#### Logging
+
+All form submissions are logged to console for analytics:
+
+```typescript
+console.log("[FORM_SUBMIT]", {
+  at: new Date().toISOString(),
+  event: "buyer_guide_request",
+  firstName: "Jane",
+  lastName: "Smith",
+  email: "jane.smith@example.com",
+  guide: "buying-real-estate-guide",
+  path: "/"
+});
+```
+
+#### Error Handling
+
+```typescript
+// Discord notification error handling
+try {
+  await fetch(process.env.DISCORD_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(discordPayload)
+  });
+} catch (discordError) {
+  console.error("[DISCORD_NOTIFICATION_ERROR]", discordError);
+  // Form tracking continues even if Discord fails
+}
+```
+
+### Testing
+
+#### Local Testing
+
+```bash
+# Test buyer guide request
+curl -X POST http://localhost:3000/api/form-track \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event": "buyer_guide_request",
+    "firstName": "Test",
+    "lastName": "User",
+    "email": "test@example.com",
+    "guide": "buying-real-estate-guide",
+    "path": "/"
+  }'
+
+# Test seller guide request
+curl -X POST http://localhost:3000/api/form-track \
+  -H "Content-Type: application/json" \
+  -d '{
+    "event": "seller_guide_request",
+    "firstName": "Test",
+    "lastName": "User", 
+    "email": "test@example.com",
+    "address": "123 Test Street, Melbourne",
+    "guide": "selling-2025-guide",
+    "path": "/"
+  }'
+```
+
+### Security Considerations
+
+1. **No Persistent Storage**: Data is only logged, not stored permanently
+2. **Graceful Degradation**: Continues operation even if Discord integration fails
+3. **Input Sanitization**: All inputs are treated as plain text
+4. **Rate Limiting**: Consider implementing for production use
+
 ### Future Enhancements
 
 1. **Rate Limiting**: Implement per-IP rate limiting with Redis
@@ -281,3 +474,4 @@ The API provides detailed logging for monitoring integration health:
 5. **File Uploads**: Support for property photos or documents
 6. **A/B Testing**: Form variant testing for optimization
 7. **Lead Scoring**: Automatic lead qualification based on form data
+8. **Multiple Notification Channels**: Support for Slack, Teams, or email notifications alongside Discord

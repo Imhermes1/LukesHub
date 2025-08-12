@@ -104,9 +104,9 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
                   <iframe
                     width="100%"
                     height="315"
-                    src="https://www.youtube.com/embed/UlwuEQnlMXg?enablejsapi=1&rel=0&modestbranding=1"
+                    src="https://www.youtube.com/embed/YNqqiuc_lR4?enablejsapi=1&rel=0&modestbranding=1"
                     title="Templestowe Property Video Tour"
-                    frameBorder="0"
+                    style={{ border: 'none' }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
                     className="modal-youtube-iframe"

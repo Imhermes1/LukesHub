@@ -35,7 +35,7 @@ app/components/
 ├── About.tsx          # About section with photo
 ├── Testimonials.tsx   # Client testimonials grid
 ├── MediaCoverage.tsx  # Media logos and links
-├── Social.tsx         # Social media integration
+├── Social.tsx         # Content Hub with social media, PDF guides, and Medium articles
 ├── Contact.tsx        # Contact form with validation
 ├── PropertyModal.tsx  # Property detail modal
 └── Footer.tsx         # Site footer with licensing credentials (License No: 094444L)
