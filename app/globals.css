@@ -2720,6 +2720,14 @@ a:focus-visible {
   }
 }
 
+/* Section-specific button text overrides */
+#testimonials :is(button, .btn, .testimonial-readmore-pill, .modal-close),
+#testimonials :is(button, .btn, .testimonial-readmore-pill, .modal-close):is(:hover, :focus, :active),
+#media-coverage :is(button, .btn, .media-btn-glass, .modal-close),
+#media-coverage :is(button, .btn, .media-btn-glass, .modal-close):is(:hover, :focus, :active) {
+  color: #ffffff;
+}
+
 .property-card {
   animation: fadeInUp 0.6s ease-out;
 }
