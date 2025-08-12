@@ -29,7 +29,7 @@
 ```
 app/components/
 ├── Header.tsx          # Navigation with mobile menu
-├── Hero.tsx           # Video background hero section with "Licensed Estate Agent" title
+├── Hero.tsx           # Video background hero section with "Luke Fornieri" main title and "Licensed Estate Agent" subtitle
 ├── CareerHighlights.tsx # Property showcase grid
 ├── Services.tsx       # Services grid with embedded video
 ├── About.tsx          # About section with photo
@@ -38,7 +38,7 @@ app/components/
 ├── Social.tsx         # Social media integration
 ├── Contact.tsx        # Contact form with validation
 ├── PropertyModal.tsx  # Property detail modal
-└── Footer.tsx         # Site footer
+└── Footer.tsx         # Site footer with licensing credentials (License No: 094444L)
 ```
 
 #### Styling Approach
