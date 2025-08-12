@@ -2728,6 +2728,17 @@ a:focus-visible {
   color: #ffffff;
 }
 
+/* Force all text site-wide to white */
+html, body, body * {
+  color: #ffffff !important;
+}
+
+/* Ensure form placeholders are readable in white */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .property-card {
   animation: fadeInUp 0.6s ease-out;
 }
