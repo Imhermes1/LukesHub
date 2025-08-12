@@ -545,6 +545,64 @@ a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* Custom button styles - all with frosted white appearance */
+.media-btn-glass,
+.guide-button,
+.articles-button,
+.social-link-button,
+.enquire-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-12);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+.media-btn-glass:hover,
+.guide-button:hover,
+.articles-button:hover,
+.social-link-button:hover,
+.enquire-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.media-btn-glass:active,
+.guide-button:active,
+.articles-button:active,
+.social-link-button:active,
+.enquire-btn:active {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.2);
+  color: #000000;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 .sticky-header {
   position: sticky;
   top: 0;
@@ -614,7 +672,7 @@ a:focus-visible {
 
 .brand-title {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   margin: 0;
   color: var(--color-text);
@@ -2473,7 +2531,7 @@ a:focus-visible {
   }
   
   .brand-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
   }
   
   .nav-toggle {

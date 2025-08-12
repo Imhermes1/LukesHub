@@ -29,7 +29,7 @@
 ```
 app/components/
 ├── Header.tsx          # Navigation with mobile menu
-├── Hero.tsx           # Video background hero section
+├── Hero.tsx           # Video background hero section with "Licensed Estate Agent" title
 ├── CareerHighlights.tsx # Property showcase grid
 ├── Services.tsx       # Services grid with embedded video
 ├── About.tsx          # About section with photo

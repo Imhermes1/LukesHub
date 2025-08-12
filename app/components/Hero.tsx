@@ -41,7 +41,7 @@ export default function Hero() {
       <div className="hero-glassmorphism"></div>
       {/* Hero Content */}
       <div className={`hero-content ${isLoaded ? 'hero-content-fade-in' : ''}`}>
-        <h1 className="hero-title">Real Estate Excellence</h1>
+        <h1 className="hero-title">Licensed Estate Agent</h1>
         <p className="hero-subtitle">Your trusted partner in Melbourne's property market</p>
         <a href="#contact" className="btn btn-primary btn-hero-large">Contact Us Today!</a>
       </div>
