@@ -644,8 +644,8 @@ a:focus-visible {
   align-items: center;
   gap: var(--space-12);
   position: absolute;
-  left: var(--space-8);
-  transform: none;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .brand-logo {
@@ -673,7 +673,7 @@ a:focus-visible {
 
 .brand-title {
   font-family: var(--font-family-base);
-  font-size: var(--font-size-2xl);
+  font-size: 28px;
   font-weight: 800;
   margin: 0;
   color: #ffffff;
