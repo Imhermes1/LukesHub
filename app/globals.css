@@ -410,40 +410,29 @@ a:focus-visible {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-medium);
   line-height: 1;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
   text-decoration: none;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.3),
-    0 2px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #000000;
   position: relative;
   overflow: hidden;
 }
 
-/* Apply gradient text to all buttons */
-.btn {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
+/* Frosted white buttons with black text */
 .btn:hover,
 .btn:focus,
 .btn:active {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
 }
 
 .btn::before {
@@ -463,15 +452,15 @@ a:focus-visible {
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn:active {
   transform: translateY(0);
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .btn:focus-visible {
@@ -480,57 +469,39 @@ a:focus-visible {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  color: #000000;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border: 1px solid var(--glass-border-blue);
+  background: rgba(255, 255, 255, 0.15);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border: 1px solid var(--color-accent-blue);
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary-invert {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border: 1px solid var(--glass-border-purple);
+  background: rgba(255, 255, 255, 0.15);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary-invert:hover {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
-  border: 1px solid var(--color-accent-purple);
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .btn-full-width {
@@ -542,45 +513,36 @@ a:focus-visible {
   font-weight: var(--font-weight-semibold);
   padding: var(--space-10) var(--space-20);
   border-radius: 20px;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    0 4px 12px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all var(--duration-normal) var(--ease-standard);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #000000;
 }
 
 .btn-hero-large:hover {
   transform: translateY(-3px);
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
+  background: rgba(255, 255, 255, 0.3);
+  color: #000000;
   box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.4),
-    0 6px 16px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
+    0 12px 32px rgba(0, 0, 0, 0.2),
+    0 6px 16px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-hero-large:active {
   transform: translateY(-1px);
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #3a3a3a 100%);
-  color: transparent;
-  background-image: var(--gradient-blue-purple);
-  -webkit-background-clip: text;
-  background-clip: text;
+  background: rgba(255, 255, 255, 0.25);
+  color: #000000;
   box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .sticky-header {
@@ -615,7 +577,6 @@ a:focus-visible {
   padding: var(--space-4) var(--space-8);
   max-width: var(--container-lg);
   margin: 0 auto;
-  gap: var(--space-32);
   position: relative;
 }
 
@@ -623,6 +584,9 @@ a:focus-visible {
   display: flex;
   align-items: center;
   gap: var(--space-12);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .brand-logo {
