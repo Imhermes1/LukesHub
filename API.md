@@ -391,7 +391,10 @@ The API sends rich embed notifications to Discord with the following structure:
 - **Event Formatting**: Automatic text formatting with proper capitalization using TypeScript-compliant string manipulation
 - **Conditional Fields**: Property address field only shown for seller requests
 - **Timestamps**: Automatic ISO timestamp for tracking
-- **Error Handling**: Graceful failure if Discord webhook is unavailable
+- **Enhanced Error Handling**: Comprehensive error logging with response status and body details
+- **Webhook Validation**: Response status checking with detailed error capture
+- **Null Safety**: Proper handling of missing form fields with fallback values
+- **Configuration Logging**: Status logging for webhook configuration and connectivity
 - **Type Safety**: Full TypeScript compliance with explicit type annotations for all string operations
 
 ### Implementation Details
@@ -415,21 +418,62 @@ console.log("[FORM_SUBMIT]", {
 #### Error Handling
 
 ```typescript
-// Discord notification error handling with TypeScript compliance
+// Enhanced Discord notification error handling with comprehensive logging
 try {
-  await fetch(process.env.DISCORD_WEBHOOK_URL, {
+  console.log("[DISCORD_WEBHOOK] Sending notification...");
+  
+  const discordPayload = {
+    embeds: [{
+      title: `🏠 New ${body.event?.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'Form Submission'}`,
+      color: 0x00ff00,
+      fields: [
+        {
+          name: "👤 Name",
+          value: `${body.firstName || 'N/A'} ${body.lastName || 'N/A'}`,
+          inline: true
+        },
+        {
+          name: "📧 Email",
+          value: body.email || 'N/A',
+          inline: true
+        },
+        {
+          name: "📋 Guide",
+          value: body.guide?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()) || 'N/A',
+          inline: true
+        },
+        ...(body.address ? [{
+          name: "🏡 Property Address",
+          value: body.address,
+          inline: false
+        }] : [])
+      ],
+      timestamp: new Date().toISOString(),
+      footer: { text: "Real Estate Lead" }
+    }]
+  };
+
+  const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      embeds: [{
-        title: `🏠 New ${body.event.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}`,
-        // ... rest of embed structure
-      }]
-    })
+    body: JSON.stringify(discordPayload)
   });
+
+  if (!response.ok) {
+    console.error("[DISCORD_WEBHOOK_ERROR] Response not ok:", response.status, response.statusText);
+    const errorText = await response.text();
+    console.error("[DISCORD_WEBHOOK_ERROR] Response body:", errorText);
+  } else {
+    console.log("[DISCORD_WEBHOOK] Notification sent successfully");
+  }
 } catch (discordError) {
   console.error("[DISCORD_NOTIFICATION_ERROR]", discordError);
   // Form tracking continues even if Discord fails
+}
+
+// Configuration status logging
+if (!process.env.DISCORD_WEBHOOK_URL) {
+  console.log("[DISCORD_WEBHOOK] No webhook URL configured");
 }
 ```
 

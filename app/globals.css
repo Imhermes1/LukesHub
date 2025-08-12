@@ -1647,6 +1647,39 @@ a:focus-visible {
 .guide-modal {
   max-width: 500px;
   width: 90%;
+  margin: 0;
+}
+
+.guide-form {
+  padding: var(--space-16);
+}
+
+.form-group {
+  margin-bottom: var(--space-12);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.form-group input {
+  width: 100%;
+  padding: var(--space-8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2);
+}
 }
 
 .guide-form {
@@ -2281,6 +2314,10 @@ a:focus-visible {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
 .modal-content {
@@ -2294,6 +2331,7 @@ a:focus-visible {
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
+  cursor: default;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
