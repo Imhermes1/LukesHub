@@ -4,9 +4,9 @@
   --color-background-solid: #1a1a1a; /* Fallback solid color */
   --color-surface: #2a2a2a;
   --color-text: #ffffff;
-  --color-text-secondary: #e0e0e0;
+  --color-text-secondary: #ffffff;
   --color-primary: #ffffff; /* White primary */
-  --color-primary-hover: #f0f0f0;
+  --color-primary-hover: #ffffff;
   --color-primary-active: #ffffff;
   
   /* Modern Blue & Purple Accents */
@@ -32,7 +32,7 @@
   
   /* System Colors */
   --color-border: #404040;
-  --color-btn-primary-text: #000000;
+  --color-btn-primary-text: #ffffff;
   --color-card-border: #404040;
   --color-card-border-inner: #505050;
   --color-error: #EF4444;
@@ -141,9 +141,9 @@
     --color-background-solid: #1a1a1a;
     --color-surface: #2a2a2a;
     --color-text: #ffffff;
-    --color-text-secondary: #e0e0e0;
+    --color-text-secondary: #ffffff;
     --color-primary: #ffffff;
-    --color-primary-hover: #f0f0f0;
+    --color-primary-hover: #ffffff;
     --color-primary-active: #ffffff;
     --color-accent-blue: #60A5FA;
     --color-accent-blue-hover: #3B82F6;
@@ -159,7 +159,7 @@
     --color-warning: #FBBF24;
     --color-info: #60A5FA;
     --color-focus-ring: rgba(59, 130, 246, 0.4);
-    --color-btn-primary-text: #000000;
+    --color-btn-primary-text: #ffffff;
     --color-card-border: #404040;
     --color-card-border-inner: #505050;
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -189,9 +189,9 @@
   --color-background-solid: #1a1a1a;
   --color-surface: #2a2a2a;
   --color-text: #ffffff;
-  --color-text-secondary: #e0e0e0;
+  --color-text-secondary: #ffffff;
   --color-primary: #ffffff;
-  --color-primary-hover: #f0f0f0;
+  --color-primary-hover: #ffffff;
   --color-primary-active: #ffffff;
   --color-accent-blue: #60A5FA;
   --color-accent-blue-hover: #3B82F6;
@@ -207,7 +207,7 @@
   --color-warning: #FBBF24;
   --color-info: #60A5FA;
   --color-focus-ring: rgba(59, 130, 246, 0.4);
-  --color-btn-primary-text: #000000;
+  --color-btn-primary-text: #ffffff;
   --color-card-border: #404040;
   --color-card-border-inner: #505050;
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -235,9 +235,9 @@
   --color-background-solid: #1a1a1a;
   --color-surface: #2a2a2a;
   --color-text: #ffffff;
-  --color-text-secondary: #e0e0e0;
+  --color-text-secondary: #ffffff;
   --color-primary: #ffffff;
-  --color-primary-hover: #f0f0f0;
+  --color-primary-hover: #ffffff;
   --color-primary-active: #ffffff;
   --color-accent-blue: #3B82F6;
   --color-accent-blue-hover: #2563EB;
@@ -248,7 +248,7 @@
   --color-accent-navy: #3B82F6; /* Map to blue */
   --color-accent-gold: #8B5CF6; /* Map to purple */
   --color-border: #404040;
-  --color-btn-primary-text: #000000;
+  --color-btn-primary-text: #ffffff;
   --color-card-border: #404040;
   --color-card-border-inner: #505050;
   --color-error: #EF4444;
@@ -422,7 +422,7 @@ a:focus-visible {
     0 4px 16px rgba(0, 0, 0, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  color: #000000;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -432,7 +432,7 @@ a:focus-visible {
 .btn:focus,
 .btn:active {
   background: rgba(255, 255, 255, 0.25);
-  color: #000000;
+  color: #ffffff;
 }
 
 .btn::before {
@@ -470,37 +470,37 @@ a:focus-visible {
 
 .btn-primary {
   background: rgba(255, 255, 255, 0.2);
-  color: #000000;
+  color: #ffffff;
   border-color: rgba(255, 255, 255, 0.4);
 }
 
 .btn-primary:hover {
   background: rgba(255, 255, 255, 0.3);
-  color: #000000;
+  color: #ffffff;
   border-color: rgba(255, 255, 255, 0.6);
 }
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.15);
-  color: #000000;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.25);
-  color: #000000;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary-invert {
   background: rgba(255, 255, 255, 0.15);
-  color: #000000;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary-invert:hover {
   background: rgba(255, 255, 255, 0.25);
-  color: #000000;
+  color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
@@ -522,13 +522,13 @@ a:focus-visible {
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.4);
   transition: all var(--duration-normal) var(--ease-standard);
-  color: #000000;
+  color: #ffffff;
 }
 
 .btn-hero-large:hover {
   transform: translateY(-3px);
   background: rgba(255, 255, 255, 0.3);
-  color: #000000;
+  color: #ffffff;
   box-shadow: 
     0 12px 32px rgba(0, 0, 0, 0.2),
     0 6px 16px rgba(0, 0, 0, 0.15),
@@ -539,7 +539,7 @@ a:focus-visible {
 .btn-hero-large:active {
   transform: translateY(-1px);
   background: rgba(255, 255, 255, 0.25);
-  color: #000000;
+  color: #ffffff;
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -570,7 +570,7 @@ a:focus-visible {
     0 4px 16px rgba(0, 0, 0, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  color: #000000;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -582,7 +582,7 @@ a:focus-visible {
 .enquire-btn:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.25);
-  color: #000000;
+  color: #ffffff;
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.15),
     0 4px 12px rgba(0, 0, 0, 0.1),
@@ -597,7 +597,7 @@ a:focus-visible {
 .enquire-btn:active {
   transform: translateY(0);
   background: rgba(255, 255, 255, 0.2);
-  color: #000000;
+  color: #ffffff;
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -767,7 +767,7 @@ a:focus-visible {
 
 .nav-dropdown-menu a:hover {
   background: var(--glass-bg-blue);
-  color: var(--color-accent-blue);
+  color: #ffffff;
 }
 
 @keyframes fadeInDown {
@@ -1233,7 +1233,7 @@ a:focus-visible {
   left: 0;
   top: -8px;
   font-size: 3rem;
-  color: var(--color-accent-blue);
+  color: #ffffff;
   font-weight: bold;
   line-height: 1;
 }
@@ -1283,7 +1283,7 @@ a:focus-visible {
   background: none;
   border-radius: 0;
   border: none;
-  color: var(--color-accent-blue);
+  color: #ffffff;
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   box-shadow: none;
@@ -1294,7 +1294,7 @@ a:focus-visible {
 .logo-text {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent-blue);
+  color: #ffffff;
   text-align: center;
 }
 
@@ -1358,7 +1358,7 @@ a:focus-visible {
 .luke-photo-title {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent-blue);
+  color: #ffffff;
   margin-bottom: var(--space-1);
   letter-spacing: -0.02em;
 }
@@ -1381,7 +1381,7 @@ a:focus-visible {
 .resources-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent-blue);
+  color: #ffffff;
   margin-bottom: var(--space-6);
   text-align: center;
 }
@@ -1494,7 +1494,7 @@ a:focus-visible {
 .guide-title {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-accent-purple);
+  color: #ffffff;
   margin-bottom: var(--space-2);
   margin-top: 0;
 }
@@ -1567,7 +1567,7 @@ a:focus-visible {
 .article-title {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
-  color: #3B82F6;
+  color: #ffffff;
   margin-bottom: var(--space-1);
   line-height: 1.2;
 }
@@ -1711,7 +1711,7 @@ a:focus-visible {
   display: block;
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: #3B82F6;
+  color: #ffffff;
   line-height: 1;
 }
 
@@ -1757,7 +1757,7 @@ a:focus-visible {
 .highlight-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: #3B82F6;
+  color: #ffffff;
   margin-bottom: var(--space-8);
 }
 
@@ -1778,7 +1778,7 @@ a:focus-visible {
   display: inline-block;
   padding: var(--space-12) var(--space-24);
   background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
-  color: var(--color-background);
+  color: #ffffff;
   text-decoration: none;
   border-radius: 12px;
   font-weight: var(--font-weight-semibold);
@@ -1805,7 +1805,7 @@ a:focus-visible {
   display: inline-block;
   padding: var(--space-10) var(--space-20);
   background: transparent;
-  color: #3B82F6;
+  color: #ffffff;
   text-decoration: none;
   border: 2px solid #3B82F6;
   border-radius: 10px;
@@ -1816,7 +1816,7 @@ a:focus-visible {
 
 .articles-button:hover {
   background: #3B82F6;
-  color: var(--color-background);
+  color: #ffffff;
   transform: translateY(-1px);
   box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
 }
@@ -2158,7 +2158,7 @@ a:focus-visible {
   background-color: rgba(5, 150, 105, 0.1);
   border: 1px solid rgba(5, 150, 105, 0.3);
   border-radius: var(--radius-base);
-  color: var(--color-success);
+  color: #ffffff;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--space-16);
@@ -2169,7 +2169,7 @@ a:focus-visible {
   background-color: rgba(220, 38, 38, 0.1);
   border: 1px solid rgba(220, 38, 38, 0.3);
   border-radius: var(--radius-base);
-  color: var(--color-error);
+  color: #ffffff;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   margin-bottom: var(--space-16);
@@ -2264,12 +2264,12 @@ a:focus-visible {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--color-text-secondary);
+  color: #ffffff;
   padding: var(--space-4);
 }
 
 .modal-close:hover {
-  color: var(--color-text);
+  color: #ffffff;
 }
 
 .modal-body {
@@ -2441,7 +2441,7 @@ a:focus-visible {
 }
 
 .footer-links a:hover {
-  color: var(--color-accent-blue);
+  color: white;
 }
 
 .footer-social {
@@ -2469,7 +2469,7 @@ a:focus-visible {
 }
 
 .footer-social a:hover {
-  color: var(--color-accent-blue);
+  color: white;
 }
 
 .footer-bottom {
@@ -2494,7 +2494,7 @@ a:focus-visible {
 }
 
 .footer-legal a:hover {
-  color: var(--color-accent-blue);
+  color: white;
 }
 
 /* Mobile responsive styles */
@@ -2543,7 +2543,7 @@ a:focus-visible {
   .hero-title {
     font-size: 36px;
     font-weight: 700;
-    color: #3B82F6;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: -0.02em;
   }
@@ -2551,7 +2551,7 @@ a:focus-visible {
   .hero-subtitle {
     font-size: 20px;
     font-weight: 500;
-    color: #3B82F6;
+    color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
 
@@ -2676,7 +2676,7 @@ a:focus-visible {
   .hero-title {
     font-size: 28px;
     font-weight: 700;
-    color: #3B82F6;
+    color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     letter-spacing: -0.02em;
   }
@@ -2721,23 +2721,7 @@ a:focus-visible {
 }
 
 /* Section-specific button text overrides */
-#testimonials :is(button, .btn, .testimonial-readmore-pill, .modal-close),
-#testimonials :is(button, .btn, .testimonial-readmore-pill, .modal-close):is(:hover, :focus, :active),
-#media-coverage :is(button, .btn, .media-btn-glass, .modal-close),
-#media-coverage :is(button, .btn, .media-btn-glass, .modal-close):is(:hover, :focus, :active) {
-  color: #ffffff;
-}
-
-/* Force all text site-wide to white */
-html, body, body * {
-  color: #ffffff !important;
-}
-
-/* Ensure form placeholders are readable in white */
-input::placeholder,
-textarea::placeholder {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
+/* Removed previous section-specific and global force overrides */
 
 .property-card {
   animation: fadeInUp 0.6s ease-out;
@@ -3000,20 +2984,20 @@ textarea::placeholder {
 .instagram-profile-name {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
-  color: #000000;
+  color: #ffffff;
   margin: 0;
   text-shadow: none;
 }
 
 .instagram-profile-title {
   font-size: 10px;
-  color: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
   margin: 0;
 }
 
 .instagram-profile-bio {
   font-size: 10px;
-  color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
   margin: 0;
   max-width: 300px;
   line-height: 1.2;
@@ -3185,7 +3169,7 @@ textarea::placeholder {
   outline: none;
 }
 .testimonial-readmore {
-  color: var(--color-accent-gold);
+  color: #ffffff;
   font-size: var(--font-size-sm);
   margin-top: var(--space-8);
   text-align: right;
@@ -3260,7 +3244,7 @@ textarea::placeholder {
   background: rgba(255,255,255,0.22);
   backdrop-filter: blur(8px) saturate(180%);
   -webkit-backdrop-filter: blur(8px) saturate(180%);
-  color: var(--color-accent-gold);
+  color: #ffffff;
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -3272,7 +3256,7 @@ textarea::placeholder {
 .compact-testimonial:hover .testimonial-readmore-pill,
 .compact-testimonial:focus .testimonial-readmore-pill {
   background: var(--color-accent-gold);
-  color: var(--color-accent-navy);
+  color: #ffffff;
   opacity: 1;
 }
 
@@ -3281,7 +3265,7 @@ textarea::placeholder {
 .hero-content .btn-primary:hover,
 .hero-content .btn-primary:active,
 .hero-content .btn-primary:focus {
-  color: var(--color-accent-gold) !important;
+  color: #ffffff !important;
 }
 
 .media-btn-glass {
@@ -3361,7 +3345,7 @@ textarea::placeholder {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 .media-modal-content .btn-primary {
-  color: var(--color-accent-gold) !important;
+  color: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
