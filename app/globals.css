@@ -644,8 +644,8 @@ a:focus-visible {
   align-items: center;
   gap: var(--space-12);
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: var(--space-8);
+  transform: none;
 }
 
 .brand-logo {
@@ -674,10 +674,18 @@ a:focus-visible {
 .brand-title {
   font-family: var(--font-family-base);
   font-size: var(--font-size-2xl);
-  font-weight: 700;
+  font-weight: 800;
   margin: 0;
-  color: var(--color-text);
+  color: #ffffff;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
+  /* Outline effect for better contrast */
+  text-shadow:
+    -1px -1px 0 rgba(0, 0, 0, 0.6),
+     1px -1px 0 rgba(0, 0, 0, 0.6),
+    -1px  1px 0 rgba(0, 0, 0, 0.6),
+     1px  1px 0 rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.5);
 }
 
 .brand-subtitle {

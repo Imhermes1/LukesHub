@@ -71,7 +71,7 @@ export default function Header() {
       <nav className="nav-container" aria-label="Main navigation">
         <div className="nav-brand">
           <div className="brand-text">
-            <h1 className="brand-title">Luke Fornieri</h1>
+            <h1 className="brand-title">LF</h1>
           </div>
         </div>
         {/* Inline desktop/tablet navigation */}
