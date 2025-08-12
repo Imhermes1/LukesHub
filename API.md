@@ -388,10 +388,11 @@ The API sends rich embed notifications to Discord with the following structure:
 #### Features
 
 - **Rich Embeds**: Formatted notifications with colors and structured fields
-- **Event Formatting**: Automatic text formatting with proper capitalization
+- **Event Formatting**: Automatic text formatting with proper capitalization using TypeScript-compliant string manipulation
 - **Conditional Fields**: Property address field only shown for seller requests
 - **Timestamps**: Automatic ISO timestamp for tracking
 - **Error Handling**: Graceful failure if Discord webhook is unavailable
+- **Type Safety**: Full TypeScript compliance with explicit type annotations for all string operations
 
 ### Implementation Details
 
@@ -414,12 +415,17 @@ console.log("[FORM_SUBMIT]", {
 #### Error Handling
 
 ```typescript
-// Discord notification error handling
+// Discord notification error handling with TypeScript compliance
 try {
   await fetch(process.env.DISCORD_WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(discordPayload)
+    body: JSON.stringify({
+      embeds: [{
+        title: `🏠 New ${body.event.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}`,
+        // ... rest of embed structure
+      }]
+    })
   });
 } catch (discordError) {
   console.error("[DISCORD_NOTIFICATION_ERROR]", discordError);

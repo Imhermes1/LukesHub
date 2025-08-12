@@ -255,6 +255,8 @@ The project includes specific VSCode settings in `.vscode/settings.json`:
 - Define interfaces for component props
 - Avoid `any` type usage
 - Use proper return types for functions
+- Add explicit type annotations for callback functions (e.g., `(l: string) => l.toUpperCase()`)
+- Ensure all string manipulation functions have proper type safety
 
 #### Code Formatting
 
