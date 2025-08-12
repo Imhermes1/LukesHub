@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
           body: JSON.stringify({
             embeds: [
               {
-                title: `🏠 New ${body.event.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}`,
+                title: `🏠 New ${body.event.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}`,
                 color: 0x00ff00, // Green color
                 fields: [
                   {
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
                   },
                   {
                     name: "📋 Guide",
-                    value: body.guide.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+                    value: body.guide.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
                     inline: true
                   },
                   ...(body.address ? [{
