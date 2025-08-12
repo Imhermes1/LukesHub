@@ -74,6 +74,21 @@ export default function Header() {
             <h1 className="brand-title">Luke Fornieri</h1>
           </div>
         </div>
+        {/* Inline desktop/tablet navigation */}
+        <div className="nav-menu" aria-hidden={false}>
+          {menuItems.map(item => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleMenuClick(item.id);
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
         <div className="nav-hamburger-wrapper" ref={menuRef}>
           <button
             className={`nav-toggle${isMenuOpen ? ' nav-toggle--open' : ''}`}
@@ -106,4 +121,4 @@ export default function Header() {
       </nav>
     </header>
   );
-} 
+}

@@ -770,6 +770,36 @@ a:focus-visible {
   color: #ffffff;
 }
 
+/* Desktop/tablet inline nav */
+@media (min-width: 769px) {
+  .nav-hamburger-wrapper {
+    display: none;
+  }
+  .nav-menu {
+    display: flex !important;
+    align-items: center;
+    gap: var(--space-12);
+    position: absolute;
+    right: var(--space-8);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-menu a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 999px;
+    transition: background var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+  }
+  .nav-menu a:hover,
+  .nav-menu a:focus {
+    background: var(--glass-bg-blue);
+    color: #ffffff;
+    outline: none;
+  }
+}
+
 @keyframes fadeInDown {
   from { 
     opacity: 0; 
