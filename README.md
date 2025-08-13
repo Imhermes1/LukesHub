@@ -212,6 +212,7 @@ The website uses a sophisticated dark theme with modern blue and purple accents:
 - **Features**: Property image gallery, pricing display, status badges, detailed descriptions
 - **Video Integration**: Embedded YouTube video tours for select properties (currently Templestowe property with video ID: YNqqiuc_lR4)
 - **Accessibility**: Full keyboard navigation, ARIA labels, escape key handling, focus management
+- **User Experience**: Enhanced click handling prevents accidental modal closure when interacting with content
 - **Actions**: Direct enquiry button that scrolls to contact form and focuses name input field
 
 #### Glassmorphism System
@@ -684,11 +685,11 @@ The website showcases Luke Fornieri's successful property sales with an interact
    - Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones
    - Inner-city premium property
 
-3. **Forest Hill** - **SOLD** $1,720,000
-   - Beautifully renovated family home featuring modern amenities and spacious living areas in a sought-after location
+3. **20 Forest Glen Avenue, Forest Hill** - **SOLD** $1,720,000
+   - Pristine solid brick home in Blackburn South's most tightly held street
    - Family-focused property in desirable suburb
 
-4. **South Melbourne** - **SOLD** $1,260,000
+4. **95 Bank Street, South Melbourne** - **SOLD** $1,260,000
    - Contemporary urban residence with premium finishes and excellent connectivity to Melbourne's CBD
    - Urban lifestyle property with city connectivity
 
@@ -704,6 +705,14 @@ The website showcases Luke Fornieri's successful property sales with an interact
 ## 🔄 Recent Updates
 
 **Latest Changes:**
+- **v1.0.16 (January 13, 2025)**: PropertyModal UX improvement
+  - Enhanced modal interaction by preventing accidental closure when clicking inside modal content
+  - Added `stopPropagation()` to modal content click handler for better user experience
+  - Modal now only closes when clicking the overlay area or close button, not when interacting with content
+- **v1.0.15 (January 13, 2025)**: Property portfolio address updates
+  - Updated Forest Hill property to include full address: "20 Forest Glen Avenue, Forest Hill"
+  - Updated South Melbourne property to include full address: "95 Bank Street, South Melbourne"
+  - Enhanced property showcase with complete street addresses for better location identification
 - **v1.0.14 (January 13, 2025)**: TypeScript optimization and code maintenance
   - Removed unused `useEffect` import from main page component
   - Fixed TypeScript strict mode compliance issue
@@ -771,7 +780,7 @@ The website showcases Luke Fornieri's successful property sales with an interact
 ---
 
 **Last Updated**: January 13, 2025  
-**Version**: 1.0.14  
+**Version**: 1.0.16  
 **Framework**: Next.js 14.2.30  
 **Node.js**: 18.17+ required  
 **Maintainer**: Development Team

@@ -37,7 +37,7 @@ export default function Home() {
       status: "SOLD",
       price: 1720000,
       image: "/images/HighRes_6k_18.jpg",
-      details: "Pristine solid brick home in Blackburn South's most tightly held street"
+      details: "In tightly held Forest Glen Avenue, this pristine solid brick home showcases timeless craftsmanship, premium finishes and rare buying opportunity."
     },
     {
       address: "95 Bank Street, South Melbourne",

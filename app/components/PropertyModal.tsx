@@ -74,7 +74,7 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
       aria-hidden={!isOpen}
     >
       <div className="modal-overlay" aria-label="Close modal" onClick={onClose}></div>
-      <div className="modal-content">
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <h2 id="modal-title" className="modal-title">{street}</h2>
           <button className="modal-close" aria-label="Close modal" onClick={onClose}>&times;</button>
