@@ -33,14 +33,14 @@ export default function Home() {
       details: "Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones."
     },
     {
-      address: "Forest Hill",
+      address: "20 Forest Glen Avenue, Forest Hill",
       status: "SOLD",
       price: 1720000,
       image: "/images/HighRes_6k_18.jpg",
       details: "Pristine solid brick home in Blackburn South's most tightly held street"
     },
     {
-      address: "South Melbourne",
+      address: "95 Bank Street, South Melbourne",
       status: "SOLD",
       price: 1260000,
       image: "/images/14971480-4-1F78700.jpg",
