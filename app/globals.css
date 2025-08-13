@@ -972,9 +972,29 @@ a:focus-visible {
 }
 
 .sales-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
   gap: var(--space-24);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-16);
+}
+
+.sales-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.sales-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.sales-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.sales-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .property-card {
@@ -988,6 +1008,8 @@ a:focus-visible {
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
   overflow: hidden;
+  flex: 0 0 320px;
+  min-width: 320px;
   transition: none !important;
   cursor: pointer;
   position: relative;
@@ -2685,7 +2707,12 @@ a:focus-visible {
   }
 
   .sales-grid {
-    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  
+  .property-card {
+    flex: 0 0 280px;
+    min-width: 280px;
   }
 
   .services-grid {
@@ -3614,8 +3641,12 @@ a:focus-visible {
   }
 
   .sales-grid {
-    grid-template-columns: 1fr;
     gap: var(--space-16);
+  }
+  
+  .property-card {
+    flex: 0 0 260px;
+    min-width: 260px;
   }
 }
 

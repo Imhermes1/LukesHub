@@ -19,12 +19,12 @@ export default function Header() {
 
   const menuItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'career-highlights', label: 'Career Highlights' },
+    { id: 'career-highlights', label: 'Property Showcase' },
     { id: 'services', label: 'Services' },
     { id: 'about', label: 'About' },
     { id: 'testimonials', label: 'Testimonials' },
     { id: 'media-coverage', label: 'Media' },
-    { id: 'social', label: 'Social' },
+    { id: 'social', label: 'Content Hub' },
     { id: 'contact', label: 'Contact' }
   ];
 

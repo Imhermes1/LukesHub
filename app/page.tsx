@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';om 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CareerHighlights from './components/CareerHighlights';
@@ -33,17 +33,17 @@ export default function Home() {
       details: "Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones."
     },
     {
-      address: "Blackburn South",
+      address: "Forest Hill",
       status: "SOLD",
       price: 1720000,
       image: "/images/HighRes_6k_18.jpg",
-      details: "Beautifully renovated family home featuring modern amenities and spacious living areas in a sought-after location."
+      details: "Pristine solid brick home in Blackburn South’s most tightly held street"
     },
     {
       address: "South Melbourne",
       status: "SOLD",
       price: 1260000,
-      image: "/images/IMG_2310.jpg",
+      image: "/images/14971480-4-1F78700.jpg",
       details: "Contemporary urban residence with premium finishes and excellent connectivity to Melbourne's CBD."
     }
   ];
@@ -71,7 +71,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <PropertyModal 
+      <PropertyModal
         isOpen={isModalOpen}
         onClose={closeModal}
         property={properties[selectedProperty]}

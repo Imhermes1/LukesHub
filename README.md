@@ -191,6 +191,7 @@ The website uses a sophisticated dark theme with modern blue and purple accents:
 **Header Component:**
 - **Purpose**: Sticky navigation with responsive mobile hamburger menu
 - **Features**: Smooth scroll navigation, brand logo, mobile-optimized dropdown menu
+- **Navigation Items**: Home, Property Showcase, Services, About, Testimonials, Media, Content Hub, Contact
 - **Behavior**: Transparent over hero, solid background when scrolled past hero section
 
 **Hero Component:**
@@ -683,7 +684,7 @@ The website showcases Luke Fornieri's successful property sales with an interact
    - Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones
    - Inner-city premium property
 
-3. **Blackburn South** - **SOLD** $1,720,000
+3. **Forest Hill** - **SOLD** $1,720,000
    - Beautifully renovated family home featuring modern amenities and spacious living areas in a sought-after location
    - Family-focused property in desirable suburb
 
@@ -703,6 +704,24 @@ The website showcases Luke Fornieri's successful property sales with an interact
 ## 🔄 Recent Updates
 
 **Latest Changes:**
+- **v1.0.14 (January 13, 2025)**: TypeScript optimization and code maintenance
+  - Removed unused `useEffect` import from main page component
+  - Fixed TypeScript strict mode compliance issue
+  - Code quality improvement with no functional changes
+- **v1.0.13 (January 13, 2025)**: Code quality improvements
+  - PropertyModal component code formatting and style cleanup
+  - Improved code consistency with standardized indentation and spacing
+  - No functional changes, maintenance update for better code readability
+- **v1.0.12 (January 13, 2025)**: Navigation consistency update
+  - Updated Header component navigation label from "Social" to "Content Hub" to match section naming
+  - Ensures consistent labeling between navigation menu and actual section content
+- **v1.0.11 (January 13, 2025)**: Property portfolio image updates
+  - Swapped property images: Richmond property now uses LowRes_2k_17.jpg, South Melbourne uses 14971480-4-1F78700.jpg
+  - Maintained all property pricing, descriptions, and modal functionality
+- **v1.0.10 (January 13, 2025)**: Property portfolio location and image updates
+  - Updated property location from "Blackburn South" to "Forest Hill" 
+  - Updated Richmond property image from LowRes_2k_17.jpg to 14971480-4-1F78700.jpg
+  - Maintained all property pricing, descriptions, and modal functionality
 - **v1.0.9 (January 13, 2025)**: Property portfolio pricing and image updates
   - Updated Blackburn South property price from $1,850,000 to $1,720,000
   - Updated South Melbourne property price from $2,100,000 to $1,260,000
@@ -752,7 +771,7 @@ The website showcases Luke Fornieri's successful property sales with an interact
 ---
 
 **Last Updated**: January 13, 2025  
-**Version**: 1.0.9  
+**Version**: 1.0.14  
 **Framework**: Next.js 14.2.30  
 **Node.js**: 18.17+ required  
 **Maintainer**: Development Team

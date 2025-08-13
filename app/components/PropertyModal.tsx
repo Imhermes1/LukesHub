@@ -66,11 +66,11 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
   };
 
   return (
-    <div 
-      className={`modal ${isOpen ? 'modal-open' : ''}`} 
-      role="dialog" 
-      aria-labelledby="modal-title" 
-      aria-describedby="modal-description" 
+    <div
+      className={`modal ${isOpen ? 'modal-open' : ''}`}
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
       aria-hidden={!isOpen}
     >
       <div className="modal-overlay" aria-label="Close modal" onClick={onClose}></div>
@@ -81,10 +81,10 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
         </div>
         <div className="modal-body">
           <div className="modal-image-container">
-            <img 
-              id="modal-image" 
-              src={property.image} 
-              alt={`${street} in ${suburb}`} 
+            <img
+              id="modal-image"
+              src={property.image}
+              alt={`${street} in ${suburb}`}
               className="modal-image"
             />
             <div className="modal-status">
@@ -95,7 +95,7 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
             <p id="modal-location" className="modal-location">{suburb}</p>
             <p id="modal-price" className="modal-price">{formatPrice(property.price)}</p>
             <p id="modal-description" className="modal-description">{property.details}</p>
-            
+
             {/* YouTube Video for Templestowe Property */}
             {propertyIndex === 0 && (
               <div className="modal-youtube-section">
@@ -114,7 +114,7 @@ export default function PropertyModal({ isOpen, onClose, property, propertyIndex
                 </div>
               </div>
             )}
-            
+
             <div className="modal-actions">
               <button className="btn btn-primary enquire-btn" onClick={handleEnquire}>
                 Enquire about similar properties
