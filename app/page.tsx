@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';om 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CareerHighlights from './components/CareerHighlights';
@@ -37,7 +37,7 @@ export default function Home() {
       status: "SOLD",
       price: 1720000,
       image: "/images/HighRes_6k_18.jpg",
-      details: "Pristine solid brick home in Blackburn South’s most tightly held street"
+      details: "Pristine solid brick home in Blackburn South's most tightly held street"
     },
     {
       address: "South Melbourne",
