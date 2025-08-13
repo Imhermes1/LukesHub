@@ -668,9 +668,51 @@ This is a private project. For updates or modifications, please contact the deve
 - **[Social API Setup](SOCIAL_API_SETUP.md)**: Social media API configuration
 - **[Project Roadmap](TODO.md)**: Current tasks and future enhancements
 
+## 🏠 Property Portfolio
+
+The website showcases Luke Fornieri's successful property sales with an interactive property showcase featuring:
+
+### Featured Properties
+
+1. **5 Princely Terrace, Templestowe** - **SOLD** $6,250,000
+   - Grand hillside residence with sweeping views, resort-style pool and refined European interiors
+   - Features embedded YouTube video tour (Video ID: YNqqiuc_lR4)
+   - Premium luxury property showcase
+
+2. **9 Manton Street, Richmond** - **SOLD** $2,400,000
+   - Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones
+   - Inner-city premium property
+
+3. **Blackburn South** - **SOLD** $1,720,000
+   - Beautifully renovated family home featuring modern amenities and spacious living areas in a sought-after location
+   - Family-focused property in desirable suburb
+
+4. **South Melbourne** - **SOLD** $1,260,000
+   - Contemporary urban residence with premium finishes and excellent connectivity to Melbourne's CBD
+   - Urban lifestyle property with city connectivity
+
+### Property Showcase Features
+
+- **Interactive Property Cards**: Hover effects with glassmorphism styling
+- **Property Modal System**: Detailed property information with image galleries
+- **Video Integration**: Embedded YouTube tours for select properties
+- **Status Badges**: Clear "SOLD" indicators with professional styling
+- **Price Formatting**: Australian currency formatting with proper localization
+- **Responsive Design**: Mobile-optimized property browsing experience
+
 ## 🔄 Recent Updates
 
 **Latest Changes:**
+- **v1.0.9 (January 13, 2025)**: Property portfolio pricing and image updates
+  - Updated Blackburn South property price from $1,850,000 to $1,720,000
+  - Updated South Melbourne property price from $2,100,000 to $1,260,000
+  - Swapped property images: Blackburn South now uses HighRes_6k_18.jpg, South Melbourne uses IMG_2310.jpg
+  - Maintained all property descriptions and modal functionality
+- **v1.0.8 (January 13, 2025)**: Property portfolio expansion
+  - Added two new sold properties to showcase: Blackburn South and South Melbourne
+  - Enhanced property portfolio diversity with family homes and urban residences
+  - Updated property showcase to display four premium sold properties
+  - Maintained consistent property data structure and modal functionality
 - **v1.0.7 (December 8, 2024)**: Enhanced form tracking API with improved Discord integration
   - Comprehensive error handling for Discord webhook failures with detailed logging
   - Enhanced Discord payload structure with proper null safety and fallback values
@@ -709,8 +751,8 @@ This is a private project. For updates or modifications, please contact the deve
 
 ---
 
-**Last Updated**: December 8, 2024  
-**Version**: 1.0.6  
+**Last Updated**: January 13, 2025  
+**Version**: 1.0.9  
 **Framework**: Next.js 14.2.30  
 **Node.js**: 18.17+ required  
 **Maintainer**: Development Team

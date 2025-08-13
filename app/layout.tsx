@@ -3,8 +3,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 
 export const metadata = {
-  title: 'Luke Fornieri - MAK REALTY | Premium Real Estate Services',
-  description: 'Luke Fornieri, premium real estate agent with MAK REALTY. Specializing in luxury properties and exceptional client service.',
+  title: 'Luke Fornieri | Premium Real Estate Services',
+  description: 'Luke Fornieri, premium real estate agent. Specializing in luxury properties and exceptional client service.',
 };
 
 export default function RootLayout({

@@ -31,6 +31,20 @@ export default function Home() {
       price: 2400000,
       image: "/images/LowRes_2k_17.jpg",
       details: "Architect-designed contemporary terrace blending heritage façade with light-filled modern living zones."
+    },
+    {
+      address: "Blackburn South",
+      status: "SOLD",
+      price: 1720000,
+      image: "/images/HighRes_6k_18.jpg",
+      details: "Beautifully renovated family home featuring modern amenities and spacious living areas in a sought-after location."
+    },
+    {
+      address: "South Melbourne",
+      status: "SOLD",
+      price: 1260000,
+      image: "/images/IMG_2310.jpg",
+      details: "Contemporary urban residence with premium finishes and excellent connectivity to Melbourne's CBD."
     }
   ];
 
