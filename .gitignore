@@ -48,6 +48,10 @@ jspm_packages/
 # Vercel
 .vercel
 
+# Next.js
+.next/
+out/
+
 # IDE
 .vscode/
 .idea/
