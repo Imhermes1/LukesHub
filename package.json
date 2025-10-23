@@ -12,9 +12,9 @@
   "dependencies": {
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.2.0",
-    "next": "^14.2.30",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",

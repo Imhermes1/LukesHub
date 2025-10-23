@@ -1,1 +1,14 @@
-{"pages":{},"app":{"/Users/lukefornieri/LukesHub/app/page":["static/media/793968fa3513f5d6-s.p.woff2","static/media/4f089323c8b5a95d-s.p.woff2"],"/Users/lukefornieri/LukesHub/app/layout":["static/media/793968fa3513f5d6-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}
+{
+  "app": {
+    "[project]/app/_not-found/page": [
+      "static/media/ca31d6821328a4e9-s.p.8036670a.woff2"
+    ],
+    "[project]/app/page": [
+      "static/media/ca31d6821328a4e9-s.p.8036670a.woff2",
+      "static/media/e45caa9cf40210a0-s.p.f86e1195.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}
