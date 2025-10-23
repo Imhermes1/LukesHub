@@ -1,56 +1,25 @@
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import './globals.css';
+import { Lexend } from 'next/font/google'
+import './globals.css'
 
 export const metadata = {
-  title: 'Luke Fornieri | Premium Real Estate Services',
-  description: 'Luke Fornieri, premium real estate agent. Specializing in luxury properties and exceptional client service.',
-};
+  title: "Luke Fornieri | Founder of FORNIERI & Lumora Labs",
+  description: "Luke Fornieri's hub - connecting real estate excellence with innovative app development. Explore FORNIERI Real Estate and Lumora Labs.",
+}
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-lexend',
+})
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link rel="preload" as="image" href="/images/hero-optimized.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
-              "name": "Luke Fornieri",
-              "url": "https://lukefornieri.com.au",
-              "sameAs": [
-                "https://www.instagram.com/lukefornieri",
-                "https://medium.com/@lukeforn",
-                "https://www.youtube.com/channel/UC-example"
-              ],
-              "jobTitle": "Real Estate Agent",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "MAK REALTY"
-              },
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Melbourne",
-                "addressCountry": "AU"
-              }
-            })
-          }}
-        />
-      </head>
-      <body>
-        {children}
-        <Analytics />
-        <SpeedInsights />
-      </body>
+    <html lang="en" className={lexend.className}>
+      <body>{children}</body>
     </html>
-  );
-} 
+  )
+}
