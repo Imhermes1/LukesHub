@@ -495,7 +495,7 @@ export default function Home() {
                             </p>
 
                             <button
-                                onClick={() => setExpandedImage("/images/microprev.PNG")}
+                                onClick={() => setExpandedImage("/images/microprev.png")}
                                 style={{
                                     border: "none",
                                     background: "none",
@@ -506,7 +506,7 @@ export default function Home() {
                                 aria-label="Expand Micro preview"
                             >
                                 <Image
-                                    src="/images/microprev.PNG"
+                                    src="/images/microprev.png"
                                     alt="Micro App Preview"
                                     width={130}
                                     height={130}
