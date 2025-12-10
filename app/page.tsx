@@ -1,420 +1,481 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { Lexend, Lexend_Tera } from "next/font/google";
 
-const lexend = Lexend({
-    subsets: ["latin"],
-    weight: ["400", "700"],
-    display: "swap",
-});
-
-const lexendTera = Lexend_Tera({
-    subsets: ["latin"],
-    weight: ["400", "700"],
-    display: "swap",
-});
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
-    const [expandedImage, setExpandedImage] = useState<string | null>(null);
+    const [isDevMode, setIsDevMode] = useState(false);
+    const [timeTheme, setTimeTheme] = useState("theme-day"); // Default to day to prevent flash
 
-    const macroImages = [
-        { src: "/images/Macro 1 .png", alt: "Macro 1" },
-        { src: "/images/Macro 4 copy.png", alt: "Macro 4" },
-        { src: "/images/Macro 3 copy.png", alt: "Macro 3" },
+    useEffect(() => {
+        const hour = new Date().getHours();
+        if (hour >= 6 && hour < 11) {
+            setTimeTheme("theme-morning");
+        } else if (hour >= 11 && hour < 17) {
+            setTimeTheme("theme-day");
+        } else {
+            setTimeTheme("theme-night");
+        }
+    }, []);
+
+    const buildingApps = [
+        {
+            name: "Vestæ",
+            icon: "/images/vestae_app_logo.png",
+            href: "https://vestae.vercel.app",
+        },
+        {
+            name: "Macro",
+            icon: "/images/macro_icon.png",
+            href: "https://apps.apple.com/us/app/macro-health-fitness/id6753906481",
+            badge: "Live",
+        },
+        {
+            name: "Micro",
+            icon: "/images/micro_icon.png",
+            href: "https://lumoralabs.io/micro",
+        },
     ];
 
     const socialLinks = [
         {
+            href: "https://www.youtube.com/@LukeFornieri",
+            icon: "/youtube-svgrepo-com.svg",
+            label: "YouTube",
+        },
+        {
             href: "https://linkedin.com/in/lukefornieri",
-            iconSrc: "/linkedin-161-svgrepo-com.svg",
-            label: "LinkedIn"
+            icon: "/linkedin-161-svgrepo-com.svg",
+            label: "LinkedIn",
         },
         {
             href: "https://instagram.com/lukefornieri",
-            iconSrc: "/instagram-svgrepo-com.svg",
-            label: "Instagram"
+            icon: "/instagram-svgrepo-com.svg",
+            label: "Instagram",
         },
         {
-            href: "https://www.youtube.com/@LukeFornieri",
-            iconSrc: "/youtube-svgrepo-com.svg",
-            label: "YouTube"
+            href: "https://www.tiktok.com/@lukefornieri",
+            icon: "/tiktok-svgrepo-com.svg",
+            label: "TikTok",
         },
-        {
-            href: "https://www.facebook.com/LukeFornieriRealEstate/",
-            iconSrc: "/facebook-svgrepo-com.svg",
-            label: "Facebook"
-        }
     ];
 
-    useEffect(() => {
-        const elements = document.querySelectorAll<HTMLElement>("[data-animate]");
-        if (!elements.length) return;
+    const techStack = {
+        IDE: ["VS Code", "Antigravity (Trial)"],
+        AI_Models: ["Claude Code", "Codex"],
+        Frameworks: ["Next.js", "Flutter"],
+        Languages: ["Swift", "Kotlin", "TypeScript"],
+        Infrastructure: ["Supabase", "Vercel", "Posthog"],
+        Workflow: ["Context 7 (Must Have)", "Notion", "Craft"]
+    };
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    const target = entry.target as HTMLElement;
-                    if (entry.isIntersecting) {
-                        const delay = target.dataset.delay ?? "0";
-                        target.style.setProperty("--animate-delay", `${delay}ms`);
-                        target.classList.add("in-view");
-                    } else {
-                        target.classList.remove("in-view");
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        elements.forEach((el) => observer.observe(el));
-
-        return () => observer.disconnect();
-    }, []);
+    const personalApps = [
+        { name: "Notion", icon: "/images/notion_logo.svg", href: "https://www.notion.so" },
+        { name: "Craft", icon: "/images/craft_icon.png", href: "https://www.craft.do" },
+        { name: "Wispr Flow", icon: "/images/wispr_flow_icon.png", href: "https://wisprflow.ai" },
+        { name: "Macro", icon: "/images/macro_icon.png", href: "https://apps.apple.com/us/app/macro-health-fitness/id6753906481" },
+        { name: "Micro", icon: "/images/micro_icon.png", href: "https://lumoralabs.io/micro" },
+        { name: "Echo Notes", icon: "/images/echo_notes_icon.png", href: "https://echonotes.ai" },
+        { name: "ChatGPT", icon: "/images/chatgpt_icon_user.png", href: "https://chatgpt.com" },
+        { name: "Gemini", icon: "/images/gemini_icon_user.png", href: "https://gemini.google.com" },
+    ];
 
     return (
-        <main className="snap-container">
-            {/* Section 1: Hero */}
-            <section className="snap-section hero-section">
-                <div className="hero-shell">
-                    <Image
-                        src="/images/Gemini_Generated_Image_bqrw9jbqrw9jbqrw.png"
-                        alt="Luke Fornieri"
-                        width={190}
-                        height={190}
-                        className="hero-avatar"
-                        priority
-                    />
+        <main className={`page ${isDevMode ? 'developer-mode' : ''} ${timeTheme}`}>
+            {/* Mode Toggle */}
+            <div className="toggle-container">
+                <span className={`toggle-label ${!isDevMode ? 'active' : ''}`}>Normal</span>
+                <button
+                    className={`toggle-switch ${isDevMode ? 'on' : 'off'}`}
+                    onClick={() => setIsDevMode(!isDevMode)}
+                    aria-label="Toggle Developer Mode"
+                >
+                    <div className="toggle-thumb" />
+                </button>
+                <span className={`toggle-label ${isDevMode ? 'active' : ''}`}>Developer</span>
+            </div>
 
-                    <div
-                        role="heading"
-                        aria-level={1}
-                        className={`${lexendTera.className} hero-title`}
-                    >
-                        LUKE FORNIERI
-                    </div>
+            {isDevMode ? (
+                <TerminalLayout
+                    buildingApps={buildingApps}
+                    socialLinks={socialLinks}
+                    techStack={techStack}
+                    onExit={() => setIsDevMode(false)}
+                />
+            ) : (
+                <StandardLayout
+                    buildingApps={buildingApps}
+                    socialLinks={socialLinks}
+                    personalApps={personalApps}
+                />
+            )}
+        </main>
+    );
+}
 
-                    <p className={`${lexend.className} hero-subtitle`}>
-                        Founder of FORNIERI &amp; Lumora Labs
-                    </p>
+function StandardLayout({ buildingApps, socialLinks, personalApps }: { buildingApps: any[], socialLinks: any[], personalApps: any[] }) {
+    return (
+        <div className="standard-layout-wrapper">
+            {/* Profile */}
+            <header className="flex w-full justify-center">
+                <Image
+                    src="/images/Gemini_Generated_Image_bqrw9jbqrw9jbqrw.png"
+                    alt="Luke Fornieri"
+                    width={128}
+                    height={128}
+                    className="avatar"
+                    priority
+                />
+            </header>
 
-                    <div className="hero-cta" data-animate="rise" data-delay="100">
-                        <span className={`badge badge--macro ${lexend.className}`} data-animate="slide" data-delay="150">
-                            <Image
-                                src="/images/macrologoNB.png"
-                                alt="Macro logo"
-                                width={30}
-                                height={30}
-                                priority
-                            />
-                            Macro · Now on iOS
-                        </span>
+            {/* Intro */}
+            <section className="section text-center">
+                <p className="intro-text">// hi, my name is</p>
+                <h1 className="name">Luke Fornieri</h1>
+            </section>
+
+            {/* Building */}
+            <section className="section">
+                <p className="section-text"><span className="text-gray-400 mr-2 text-lg">&gt;</span>I am developing</p>
+                <div className="icon-row">
+                    {buildingApps.map((app) => (
                         <Link
-                            href="https://apps.apple.com/us/app/macro/id6753906481"
+                            key={app.name}
+                            href={app.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Download Macro on the App Store"
+                            className="icon-link"
                         >
-                            <Image
-                                src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                                alt="Download Macro on the App Store"
-                                width={140}
-                                height={48}
-                                className="store-badge"
-                                priority
-                            />
-                        </Link>
-                    </div>
-
-                    <div className="social-strip" data-animate="slide" data-delay="250">
-                        {socialLinks.map((social) => (
-                            <Link
-                                key={social.label}
-                                href={social.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label={social.label}
-                            >
+                            <div className="icon-wrap">
                                 <Image
-                                    src={social.iconSrc}
-                                    alt={social.label}
-                                    width={28}
-                                    height={28}
+                                    src={app.icon}
+                                    alt={app.name}
+                                    width={56}
+                                    height={56}
+                                    className="app-icon"
                                 />
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-
-                <div className={`hero-indicator ${lexend.className}`}>
-                    <span>Scroll to explore</span>
-                    <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        style={{ animation: "bounce 2s infinite" }}
-                    >
-                        <path d="M12 5v14M19 12l-7 7-7-7" />
-                    </svg>
+                                {"badge" in app && <span className="badge">{app.badge}</span>}
+                            </div>
+                            <span className="icon-name">{app.name}</span>
+                        </Link>
+                    ))}
                 </div>
             </section>
 
-            {/* Section 2: Fornieri Real Estate */}
-            <section className="snap-section surface-section">
-                <div className="section-divider" data-animate="rise" />
-                <Link
-                    href="https://fornieri.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visit Fornieri Real Estate"
-                    className="fornieri-logo"
-                    data-animate="rise"
-                >
-                    <Image
-                        src="/images/fornieri.svg"
-                        alt="Fornieri Real Estate"
-                        width={220}
-                        height={220}
-                        priority
-                    />
-                </Link>
-
-                <div className="fornieri-copy" data-animate="slide" data-direction="left">
-                    <h2 className={`${lexend.className} feature-heading`}>People. Purpose. Property.</h2>
-                    <p className={`${lexend.className} feature-body`}>
-                        We believe trust is the cornerstone of a great result. We provide a sophisticated, personal service and an intelligent strategy tailored for you, acting as dedicated advisors to ensure your property journey is seamless and successful.
-                    </p>
-                </div>
-
-                <div className="fornieri-actions" data-animate="slide" data-direction="right" data-delay="150">
+            {/* Founder */}
+            <section className="section">
+                <p className="section-text"><span className="text-gray-400 mr-2 text-lg">&gt;</span>I am the Founder & OIEC of</p>
+                <div className="icon-row">
                     <Link
-                        href="https://medium.com/@lukeforn"
+                        href="https://fornieriazar.com.au"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`${lexend.className} button button--ghost fornieri-button`}
-                        aria-label="Read my articles on Medium"
+                        className="icon-link"
                     >
-                        Read My Articles
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            aria-hidden="true"
-                        >
-                            <path d="M5 12h14" />
-                            <path d="M12 5l7 7-7 7" />
-                        </svg>
+                        <div className="fna-wrapper">
+                            <Image
+                                src="/images/FNA.png"
+                                alt="FNA"
+                                width={100}
+                                height={100}
+                                className="fna-icon"
+                            />
+                        </div>
+                        <span className="icon-name">Fornieri & Azar</span>
                     </Link>
-                    <span className={`${lexend.className} pill-note pill-note--muted`} aria-disabled="true">
-                        Coming soon
-                    </span>
                 </div>
             </section>
 
-            {/* Section 3: Lumora Labs */}
-            <section className="snap-section surface-section--alt">
-                <div className="section-divider" data-animate="rise" />
-
-                <div className="labs-header" data-animate="rise" data-delay="100">
+            {/* Running */}
+            <section className="section">
+                <p className="section-text"><span className="text-gray-400 mr-2 text-lg">&gt;</span>I founded</p>
+                <div className="icon-row">
+                    <Link
+                        href="https://lumoralabs.io"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="icon-link"
+                    >
                         <Image
                             src="/images/Lumora_logo_new.svg"
                             alt="Lumora Labs"
-                            width={104}
-                            height={104}
-                            className="labs-header__logo"
-                            priority
+                            width={54}
+                            height={54}
+                            className="app-icon"
                         />
-                        <span className={`${lexend.className} eyebrow`}>Lumora Labs</span>
-                        <h2 className={`${lexend.className} feature-heading`}>Building calm, considered software.</h2>
-                        <p className={`${lexend.className} feature-body`}>
-                            A creative studio crafting experiences that feel minimal, powerful, and effortlessly human.
-                        </p>
-                        <Link
-                            href="https://lumoralabs.io"
-                            className={`${lexend.className} labs-header__link`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Learn more
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                <path d="M5 12h14" />
-                                <path d="M12 5l7 7-7 7" />
-                            </svg>
-                        </Link>
+                        <span className="icon-name">Lumora Labs</span>
+                    </Link>
                 </div>
-
-                <div className="apps-grid" data-animate>
-                        <div className="app-panel" data-animate="slide" data-direction="left">
-                            <Link href="https://lumoralabs.io/macro" className="app-card__logoWrap" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="/images/macrologoNB.png"
-                                    alt="Macro"
-                                    width={108}
-                                    height={108}
-                                    className="app-card__logo"
-                                    priority
-                                />
-                            </Link>
-                            <h3 className={`${lexend.className} app-card__title`}>Macro</h3>
-                            <p className={`${lexend.className} app-card__text`}>
-                                Track, optimise, and feel good—with an AI nutritionist that learns how you live.
-                            </p>
-
-                            <div className="app-card__gallery">
-                                {macroImages.map((img) => (
-                                    <button
-                                        key={img.src}
-                                        onClick={() => setExpandedImage(img.src)}
-                                        className="app-card__galleryButton"
-                                        aria-label={`Expand ${img.alt}`}
-                                    >
-                                        <Image
-                                            src={img.src}
-                                            alt={img.alt}
-                                            width={130}
-                                            height={130}
-                                        />
-                                    </button>
-                                ))}
-                            </div>
-
-                            <div className="app-card__footer">
-                                <span className={`${lexend.className} eyebrow`}>Download Macro</span>
-                                <Link
-                                    href="https://apps.apple.com/us/app/macro/id6753906481"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Download Macro on the App Store"
-                                    className="store-cta"
-                                >
-                                    <Image
-                                        src="/images/macrologoNB.png"
-                                        alt="Macro logo"
-                                        width={36}
-                                        height={36}
-                                        priority
-                                    />
-                                    <Image
-                                        src="/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
-                                        alt="Download Macro on the App Store"
-                                        width={140}
-                                        height={48}
-                                        className="store-badge"
-                                        priority
-                                    />
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className="app-panel" data-animate="slide" data-direction="right" data-delay="150">
-                            <Link href="https://lumoralabs.io/micro" className="app-card__logoWrap" target="_blank" rel="noopener noreferrer">
-                                <Image
-                                    src="/images/micro.png"
-                                    alt="Micro"
-                                    width={108}
-                                    height={108}
-                                    className="app-card__logo"
-                                />
-                            </Link>
-                            <h3 className={`${lexend.className} app-card__title`}>Micro</h3>
-                            <p className={`${lexend.className} app-card__text`}>
-                                Flow-state planning for makers. Prioritise, schedule, and ship without the noise.
-                            </p>
-
-                            <div className="app-card__gallery">
-                                <button
-                                    onClick={() => setExpandedImage("/images/microprev.png")}
-                                    className="app-card__galleryButton"
-                                    aria-label="Expand Micro preview"
-                                >
-                                    <Image
-                                        src="/images/microprev.png"
-                                        alt="Micro App Preview"
-                                        width={130}
-                                        height={130}
-                                    />
-                                </button>
-                            </div>
-
-                            <div className="app-card__footer">
-                                <span className={`${lexend.className} eyebrow`}>Launching soon</span>
-                                <span className={`${lexend.className} pill-note pill-note--muted`}>
-                                    In private preview
-                                </span>
-                            </div>
-                        </div>
-                    </div>
             </section>
 
-            {/* Modal for expanded Macro image */}
-            {expandedImage && (
-                <div
-                    onClick={() => setExpandedImage(null)}
-                    style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "100vw",
-                        height: "100vh",
-                        background: "rgba(0,0,0,0.8)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        zIndex: 1000,
-                        cursor: "zoom-out",
-                    }}
-                    aria-modal="true"
-                    role="dialog"
-                >
-                    <div
-                        style={{ position: "relative", maxWidth: "90vw", maxHeight: "90vh" }}
-                    >
-                        <Image
-                            src={expandedImage}
-                            alt="Expanded Macro"
-                            width={600}
-                            height={600}
-                            style={{
-                                width: "100%",
-                                height: "auto",
-                                maxHeight: "80vh",
-                                borderRadius: 20,
-                                background: "#fff",
-                            }}
-                        />
-                        <button
-                            onClick={() => setExpandedImage(null)}
-                            style={{
-                                position: "absolute",
-                                top: 8,
-                                right: 8,
-                                background: "rgba(0,0,0,0.6)",
-                                color: "#fff",
-                                border: "none",
-                                borderRadius: "50%",
-                                width: 32,
-                                height: 32,
-                                fontSize: 20,
-                                cursor: "pointer",
-                            }}
-                            aria-label="Close expanded image"
+            {/* Social */}
+            <section className="section">
+                <p className="section-text"><span className="text-gray-400 mr-2 text-lg">&gt;</span>I post on</p>
+                <div className="social-row">
+                    {socialLinks.map((social) => (
+                        <Link
+                            key={social.label}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`social-link social-link--${social.label.toLowerCase()}`}
+                            aria-label={social.label}
                         >
-                            ×
-                        </button>
-                    </div>
+                            <Image
+                                src={social.icon}
+                                alt={social.label}
+                                width={22}
+                                height={22}
+                            />
+                        </Link>
+                    ))}
                 </div>
-            )}
-        </main>
+            </section>
+
+            {/* Apps I Use */}
+            <section className="section">
+                <p className="section-text"><span className="text-gray-400 mr-2 text-lg">&gt;</span>I use</p>
+                <div className="icon-grid">
+                    {personalApps.map((app) => (
+                        <Link
+                            key={app.name}
+                            href={app.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="icon-link"
+                        >
+                            <div className="icon-wrap">
+                                <Image
+                                    src={app.icon}
+                                    alt={app.name}
+                                    width={46}
+                                    height={46}
+                                    className="app-icon-personal"
+                                />
+                            </div>
+                            <span className="icon-name">{app.name}</span>
+                        </Link>
+                    ))}
+                </div>
+            </section>
+        </div>
+    );
+}
+
+function TerminalLayout({ buildingApps, socialLinks, techStack, onExit }: { buildingApps: any[], socialLinks: any[], techStack: any, onExit: () => void }) {
+    const [input, setInput] = useState("");
+    const [history, setHistory] = useState<any[]>([]);
+    const [isBooting, setIsBooting] = useState(true);
+    const bottomRef = useRef<HTMLDivElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    // Boot Sequence
+    useEffect(() => {
+        let mounted = true;
+
+        const runBootSequence = async () => {
+            // 1. Initial Loader
+            if (mounted) setHistory([{ type: 'output-text', content: 'Initializing environment...' }]);
+            await new Promise(r => setTimeout(r, 800));
+            if (!mounted) return;
+
+            setHistory(prev => [...prev, { type: 'output-text', content: 'Loading modules...' }]);
+            await new Promise(r => setTimeout(r, 800));
+            if (!mounted) return;
+
+            setHistory(prev => [...prev, { type: 'output-text', content: 'System ready.' }]);
+            await new Promise(r => setTimeout(r, 500));
+            if (!mounted) return;
+
+            setHistory([]); // Clear loading text
+
+            // Helper to simulate typing
+            const typeCommand = async (cmd: string) => {
+                if (!mounted) return;
+                // Add empty command prompt
+                setHistory(prev => [...prev, { type: 'command', content: '' }]);
+
+                for (let i = 1; i <= cmd.length; i++) {
+                    if (!mounted) return;
+                    await new Promise(r => setTimeout(r, 50)); // Typing speed
+                    setHistory(prev => {
+                        const newH = [...prev];
+                        // Ensure the command block exists before trying to update it
+                        if (newH.length > 0 && newH[newH.length - 1].type === 'command') {
+                            newH[newH.length - 1].content = cmd.substring(0, i);
+                        }
+                        return newH;
+                    });
+                }
+                await new Promise(r => setTimeout(r, 200)); // Pause after typing
+            };
+
+            // 2. whoami
+            await typeCommand('whoami');
+            if (mounted) setHistory(prev => [...prev, { type: 'output-whoami' }]);
+            await new Promise(r => setTimeout(r, 500));
+            if (!mounted) return;
+
+            // 3. ls projects
+            await typeCommand('ls ./projects');
+            if (mounted) setHistory(prev => [...prev, { type: 'output-projects' }]);
+            await new Promise(r => setTimeout(r, 500));
+            if (!mounted) return;
+
+            // 4. tech stack
+            await typeCommand('cat tech_stack.json');
+            if (mounted) setHistory(prev => [...prev, { type: 'output-techstack' }]);
+            await new Promise(r => setTimeout(r, 500));
+            if (!mounted) return;
+
+            // 5. Done
+            setIsBooting(false);
+        };
+
+        runBootSequence();
+
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [history]);
+
+    const handleCommand = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (isBooting) return;
+
+        const cmd = input.trim().toLowerCase();
+
+        if (!cmd) return;
+
+        const newHistory = [...history, { type: 'command', content: input }];
+
+        switch (cmd) {
+            case 'help':
+                newHistory.push({ type: 'output-text', content: 'Available commands: whoami, ls, cat social.txt, cat tech_stack.json, clear, exit' });
+                break;
+            case 'whoami':
+                newHistory.push({ type: 'output-whoami' });
+                break;
+            case 'ls':
+            case 'ls projects':
+            case 'ls ./projects':
+                newHistory.push({ type: 'output-projects' });
+                break;
+            case 'cat social.txt':
+            case 'cat social_links.txt':
+                newHistory.push({ type: 'output-social' });
+                break;
+            case 'cat tech_stack.json':
+                newHistory.push({ type: 'output-techstack' });
+                break;
+            case 'clear':
+                setHistory([]);
+                setInput("");
+                return;
+            case 'exit':
+                onExit();
+                return;
+            default:
+                newHistory.push({ type: 'output-text', content: `Command not found: ${cmd}` });
+        }
+
+        setHistory(newHistory);
+        setInput("");
+    };
+
+    const focusInput = () => {
+        inputRef.current?.focus();
+    };
+
+    const renderOutput = (item: any) => {
+        switch (item.type) {
+            case 'output-text':
+                return <p className="output-text">{item.content}</p>;
+            case 'output-whoami':
+                return (
+                    <div>
+                        <p className="output-text">Luke Fornieri</p>
+                        <p className="output-text text-gray-400">Founder, Developer</p>
+                    </div>
+                );
+            case 'output-projects':
+                return (
+                    <div className="output-grid">
+                        {buildingApps.map(app => (
+                            <Link key={app.name} href={app.href} target="_blank" className="terminal-link">
+                                {app.name}
+                                {"badge" in app && <span className="terminal-badge">LIVE</span>}
+                            </Link>
+                        ))}
+                        <Link href="https://lumoralabs.io" target="_blank" className="terminal-link">Lumora_Labs</Link>
+                    </div>
+                );
+            case 'output-social':
+                return (
+                    <div className="output-list">
+                        {socialLinks.map(social => (
+                            <Link key={social.label} href={social.href} target="_blank" className="terminal-list-item">
+                                {social.label}
+                            </Link>
+                        ))}
+                    </div>
+                );
+            case 'output-techstack':
+                return (
+                    <pre className="output-text text-blue-300" style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+                        {JSON.stringify(techStack, null, 2)}
+                    </pre>
+                );
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <div className="terminal-window" onClick={focusInput}>
+            <div className="terminal-header">
+                <div className="terminal-buttons">
+                    <div className="terminal-btn close" onClick={onExit}></div>
+                    <div className="terminal-btn minimize"></div>
+                    <div className="terminal-btn maximize"></div>
+                </div>
+                <div className="terminal-title">luke@portfolio: ~</div>
+            </div>
+            <div className="terminal-content">
+                {history.map((item, index) => (
+                    <div key={index} className="command-block" style={{ marginBottom: item.type === 'command' ? 8 : 24 }}>
+                        {item.type === 'command' ? (
+                            <p className="prompt"><span className="user">luke@portfolio</span>:<span className="path">~</span>$ {item.content}</p>
+                        ) : (
+                            renderOutput(item)
+                        )}
+                    </div>
+                ))}
+
+                {!isBooting && (
+                    <form onSubmit={handleCommand} className="command-block flex items-center">
+                        <p className="prompt" style={{ marginBottom: 0 }}>
+                            <span className="user">luke@portfolio</span>:<span className="path">~</span>$
+                        </p>
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            className="terminal-input"
+                            autoFocus
+                            spellCheck="false"
+                            autoComplete="off"
+                        />
+                    </form>
+                )}
+                <div ref={bottomRef} />
+            </div>
+        </div>
     );
 }
