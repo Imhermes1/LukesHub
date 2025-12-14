@@ -42,7 +42,8 @@ export default function Home() {
         {
             href: "https://www.youtube.com/@LukeFornieri",
             icon: "/youtube-svgrepo-com.svg",
-            label: "YouTube",
+            label: "YouTube (Real Estate)",
+            type: "YouTube",
         },
         {
             href: "https://linkedin.com/in/lukefornieri",
@@ -58,6 +59,13 @@ export default function Home() {
             href: "https://www.tiktok.com/@lukefornieri",
             icon: "/tiktok-svgrepo-com.svg",
             label: "TikTok",
+        },
+        {
+            href: "https://www.youtube.com/@imlukefdev",
+            icon: "/youtube-svgrepo-com.svg",
+            label: "YouTube (App Dev)",
+            type: "YouTube",
+            badge: "Dev",
         },
     ];
 
@@ -219,7 +227,7 @@ function StandardLayout({ buildingApps, socialLinks, personalApps }: { buildingA
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`social-link social-link--${social.label.toLowerCase()}`}
+                            className={`social-link social-link--${(social.type || social.label).toLowerCase()}`}
                             aria-label={social.label}
                         >
                             <Image
@@ -228,6 +236,7 @@ function StandardLayout({ buildingApps, socialLinks, personalApps }: { buildingA
                                 width={22}
                                 height={22}
                             />
+                            {social.badge && <span className="badge">{social.badge}</span>}
                         </Link>
                     ))}
                 </div>
